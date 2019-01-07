@@ -1,0 +1,4282 @@
+//Locators Start
+
+package icix.Locators;
+
+import icix.TestData.RequestTestData;
+import org.openqa.selenium.By;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class RequestRepo {
+
+    public static By lnkRequests = By.xpath("//span[@class='label slds-truncate slds-text-link'][starts-with(.,'Requests')]");
+    public static By btnNewRequest = By.xpath("//*[@title='New']");
+    public static By frmFrameNewRequest = By.tagName("iframe");
+    public static By txtRequestName = By.id("requestName");
+    //	public static By RdoBtnProduct=By.id("product");
+    // public static By RdoBtnProduct = By.xpath("//label[@for='product']");
+    public static By RdoBtnProduct = By.xpath("//span[contains(text(),'Product')]/preceding::span[1]");
+    public static By RdoBtnTradingPartner = By.xpath("//span[contains(text(),'Trading Partner')]/preceding::span[1]");
+
+    //public static By txtProductName=By.id("productDropDown1"); // Commented on 29Aug
+    public static By txtProductName = By.xpath("//input[@placeholder='Select a product']"); // New Added
+    //public static By OptEnteredProduct=By.id("s01"); // Commented on 29Aug
+    public static By OptEnteredProduct = By.xpath("//span[@class='clickable ng-binding']");
+    public static By btnSelectDocForm = By.cssSelector("button.slds-button.slds-button--neutral");
+    //	public static By lnkDocCategory=By.linkText("All");
+    public static By lnkDocCategory = By.linkText("Form");
+    public static By noDocFormfound = By.xpath("//div[@class='ng-binding']");
+    public static By chooseDocFormIndex1 = By.xpath("//label[@class='slds-checkbox']");
+    public static By divMainDivForDoc = By.xpath("//div[@ng-show='showCategoryModal']");
+    public static By divSubDiv = By.xpath("//div[@class='ng-scope']");
+    public static By lblDocCheckBox = By.xpath("//label[@class='slds-checkbox']");
+    // public static By btnAttach = By.cssSelector("div.slds-modal__footer.slds-modal__footer--directional > button.slds-button.slds-button--brand");
+    //public static By btnAttach = By.xpath("//button[@text='Attach']");
+    public static By btnAttach = By.xpath("//*[text()='Attach']/parent::*[1]");
+    //public static By btnSaveOnPopup = By.xpath("//button[3]");
+    public static By btnSaveOnPopup = By.xpath("//*[text()='Save']/parent::*[1]");
+   // public static By btnSkipOnPopup = By.xpath("//button[@text='Skip']");
+    public static By btnSkipOnPopup = By.xpath("//*[text()='Skip']/parent::*[1]");
+    public static By txtDueDate = By.id("dueDate");
+    public static By tblCalender = By.xpath("//table[@class='datepicker__month']");
+    public static By tdDueDays = By.tagName("td");
+    public static By txtCommentsToSendRequest = By.id("comments");
+    public static By showmore = By.xpath("(//div[@id='brandBand_1']//header//ul[contains(@class,'oneActionsRibbon')]//a)[position()=last()]"); // New Added 16Oct 2017
+    public static By btnSendRequest = By.xpath("//button[contains(.,'Send')]");
+    public static By btnSendDocRequest = By.id("btn_sendConfirmDialogCloseButton");
+
+    //public static By lnkWorkFlows=By.linkText("Workflows");
+    public static By xpathWorkFlows = By.xpath("//a[@data-walkthrough-key='searchScopeSelector_false'][contains(text(),'Workflows')]"); //New Added By R
+    public static By ArrowToOpenMenu = By.xpath("//a[@class='menuTrigger']"); // by responder
+    public static By OptionToOpenForm = By.cssSelector("[role='menuitem'][title='Open Form']");
+    public static By OptionToCancelRequest = By.cssSelector("[role='menuitem'][title='Cancel']");
+    public static By btnCancelRequestOnWorkflowPage = By.xpath("//a[@class='forceActionLink' and @title='Cancel']");
+    public static By tabRelated = By.xpath("//span[@class='title'][contains(.,'Related')]");
+    public static By lnkWorkflowName = By.xpath("//a[@class='textUnderline outputLookupLink slds-truncate forceOutputLookup'][contains(.,'" + RequestTestData.TPRequestName + "')]");
+    public static By btnSubmitWorkflowPage = By.xpath("//div[@title='Submit'][starts-with(.,'Submit')]");
+    public static By btnSubmitReqComfirmation = By.xpath("//button[@class='slds-button slds-button--neutral slds-button--brand'][contains(.,'Submit')]");
+    public static By workflowStatus = By.xpath("//th[contains(.,'Status')]/../../following-sibling::tbody//td[2]/span");//New added 21-09-17
+    //public static By txtAttention=By.xpath("//label[contains(.,'Attention')]/following::input[1]");
+    public static By txtAttention = By.xpath("(//input[@type='text'])[position()=5]");
+    public static By drpTestingFacility = By.id("pickList");
+    public static By btnNext = By.xpath("//button[contains(text(),'Next')]");
+    public static By btnFormSubmit = By.xpath("//button[contains(.,'Submit')]");
+    //public static By btnFormSubmit=By.xpath("//*[@id='origin-main']/div[1]/div[2]/button[1]");
+    public static By SpanLabName = By.xpath("//span[contains(text(),'feature06')]");
+    public static By ArrowForOpenForm = By.xpath("//a[@title='Submit']/../following-sibling::li//a");
+    //			By.xpath("//span[@title='Show more actions for this record']"); // by lab
+    public static By drpBrandLimitResult = By.xpath("//label[contains(.,'Brand Limit Result')]/following::select[1]");
+    public static By btnLabFormClose = By.xpath("//button[@ng-click='vm.toggleModalWindow()']");
+    public static By btnYes = By.xpath("//button[contains(.,'Yes')]");
+    //public static By SpanWorkflowInstance=By.xpath("//span[contains(.,'Workflow Instance')]");
+    public static By lnkWorkflowInstance = By.xpath("//span[contains(.,'Workflow Instance')]/following::a[1]");
+    public static By anchorSubmitbyLab = By.cssSelector("[title='Submit']");
+    public static By popupBtnSubmitByLab = By.xpath("//button[contains(text(),'Submit')]");
+    public static By lnkApproveOption = By.linkText("Approve");
+    public static By txtApproveComments = By.id("txt_Comment");
+    public static By btnSaveApprovedComments = By.id("btn_Save");
+    //	public static By SpanWorkFlowStatus=By.xpath("//span[contains(.,'Status')]/following::span[2]");
+    public static By SpanWorkFlowStatusApprove = By.xpath("//div[@class='desktop full listItemBody forcePageBlockItem forcePageBlockItemView'][@arialabel='Status - Approved']");
+    public static By SpanWorkFlowStatusOpen = By.xpath("//div[@class='desktop full listItemBody forcePageBlockItem forcePageBlockItemView'][@arialabel='Status - Open']");
+    public static By SpanWorkFlowStatusCancelled = By.xpath("//div[@class='desktop full listItemBody forcePageBlockItem forcePageBlockItemView'][@arialabel='Status - Cancelled']");
+    public static By SpanWorkFlowStatusClosed = By.xpath("//div[@class='desktop full listItemBody forcePageBlockItem forcePageBlockItemView'][@arialabel='Status - Closed']");
+    // Added By rishu 27.12.16
+    //public static By tradingPartnerDropDown =By.id("tradingPartnerDropDown");
+    public static By tradingPartnerDropDown = By.xpath("//input[@placeholder='Select a Trading Partner']"); // New Added
+    public static By tradingPartnerDropDownForMultipleTP = By.xpath("(//div[contains(@class,'right ng-scope')]/input[@type='text'])[position()=1]"); // New Added
+
+
+    public static By tradingPartnerDropDownForDocument = By.xpath("//input[@placeholder='Search Trading Partner']"); // New Added
+
+
+    //public static By SelectTradingPartner =By.xpath("//h3[contains(.,'TradingPartnerName')]");
+    public static By lnkRejectOption = By.linkText("Reject");
+    public static By txtRejectComments = By.xpath("//label[contains(text(),'Comments')]/following::textarea");
+    public static By btnSubmit = By.xpath("//input[@value='Submit']");
+    public static By formFormName = By.xpath("//input[@class='slds-input ng-pristine ng-valid ng-empty ng-valid-maxlength ng-valid-minlength ng-valid-is-valid ng-touched']");
+    //public static By formFormName=By.id(".//*[@id='a0o36000001umsUAAQ']");
+    //public static By Question=By.xpath("//input[@id='a0o36000001umt7AAA']");
+    public static By Question = By.xpath("//input[contains(@type,'text')]");
+    public static By TradingPartnerName = By.xpath("//span[@class='clickable ng-binding'][contains(text(),'ICIX Feature 05')]");
+    // Workflow Status
+    public static By wfStatusDropdown = By.xpath("//a[@aria-label='Status']");
+    public static By requestComment = By.xpath("//span[contains(.,'Request is sent..')]");
+    public static By wfName = By.xpath("//a[@title='Fail']");
+    public static By btnSavewfStatus = By.xpath("//button[@title='Save']");
+    public static By linkContainer = By.xpath("//a[contains(.,'Product Test Corrective Action Form')]");
+    //public static By TradingPartnerName=By.xpath("//h3[contains(.,'"+RequestTestData.TradingPartnerName+"')]");
+    public static By drpRegulatoryLimitResult = By.xpath("//label[contains(.,'Regulatory Limit Result')]/following::select[1]");
+    public static By wfStatus = By.xpath("//span[contains(.,'Rejected by Requestor_Admin')]");
+    //Trading partner Group  Locators
+    public static By tpgTab = By.xpath("//span[@class='label slds-truncate slds-text-link'][contains(.,'Trading Partner Groups')]");
+    public static By tpgNewBtn = By.cssSelector("div[title='New']");
+    public static By tpgName = By.id("txtGroupName");
+    public static By statusTab = By.xpath("//a[contains(.,'Status')]");
+    public static By moveIconRight = By.xpath(".//*[@id='icnMoveRight']");
+    public static By typeTab = By.xpath("//a[contains(.,'Type')]");
+    public static By tpgSave = By.xpath(".//*[@id='btnSave']");
+    public static By successMsg = By.xpath("//p[@class='ng-binding']");
+    public static By tpgPopupClose = By.cssSelector("div.slds-x-small-buttons--horizontal > button.slds-button.slds-button--brand");
+    public static By reqRecentlyViewed = By.xpath("//span[@class='triggerLinkText selectedListView uiOutputText'][contains(.,'Recently Viewed')]");
+    public static By reqViewAll = By.xpath("//span[@class=' virtualAutocompleteOptionText'][contains(.,'All')]");
+    public static By btnRefreshListing = By.xpath("//button[@class='slds-button forceRefreshButton slds-button--icon-border uiButton'][@title='Refresh']");
+    //for sendRequest() function
+    //public static By btnClose=By.xpath("//button[contains(@ng-click,'redirectToRequestListPage')]");
+    //public static By btnClose = By.xpath("(//button[@text='close'])[position()=1]"); // New Added
+    //public static By btnClose = By.xpath("(//button[@text='Close' or @text='close'])[position()=1]"); // New Added
+    public static By btnClose = By.xpath("(//button[contains(@class,'ng-scope')][contains(text(),'Close')])[position()=1]");
+    public static By topRequestName = By.xpath("//table[contains(@class,'forceRecordLayout')]/tbody/tr[1]/th[1]/span/a");
+    public static By refreshRequestList = By.xpath("//div[@class='active oneContent']/div/div/div/div/div/div/div/button[contains(@class,'forceRefreshButton')]");
+    public static By MainDivForForm = By.xpath("//div[@ng-show='showCategoryModal']");
+    public static By InnerDivForForm = By.xpath("//div[@class='ng-scope']");
+    public static By chkForm = By.xpath("//label[@class='slds-checkbox']");
+    public static By WorkflowStatusSubmitedByResp = By.xpath("//span[contains(text(),'Submitted by Responder_Admin')]");
+    public static By lnkICIXTasks = By.xpath("//span[@class='label slds-truncate slds-text-link'][starts-with(.,'ICIX Tasks')]");  // New Added
+    // New Added 02Sep
+    public static By verifyRequestWarningPopup = By.xpath("//div[@id='sendRequestTable']/p[contains(text(),'A request already exists for the following product. Would you like to resend the request?')]");
+    //public static By buttonYes = By.xpath("//button[@text='Yes']");
+    public static By buttonYes = By.xpath("//*[text()='Yes']/parent::*[1]");
+
+
+    public static By btnNext3AProductTestForm = By.xpath("//button[@text='Next']");
+    public static By txtTestResult = By.xpath("(//input[@ng-change='vm.getLimitCalculationResult(test)'])[position()=1]"); // New Added
+    public static By txtRequestStatus = By.xpath("//span[contains(.,'Status')]/parent::*/following-sibling::div//span/span");
+    public static By verifyTPRequestWarningPopup = By.xpath("//div[@id='sendRequestTable']/p[contains(text(),'A request already exists for the following partner. Would you like to resend these request?')]");
+    public static By btnSubmitRejectComments = By.xpath("//button[@id='submitButton']");
+    public static By txtWorkflowStatus = By.xpath("(//*[@title='Edit Status'])[position()=last()]/preceding-sibling::span/span");
+    public static By txtComments = By.xpath("(//*[@title='Edit Comment'])[position()=last()]/preceding-sibling::span/span");
+    public static By txtAssociatedProductWithRequest = By.xpath("//span[contains(@class,'test-id__field-label')  and contains(.,'ICIX Product')]/../..//a");
+   // public static By btnCancelRequest = By.xpath("//button[@ng-click='cleanUpAndCancel();' and contains(text(),'Cancel')]");
+   public static By btnCancelRequest = By.cssSelector("button[text='Cancel']");
+    public static By verifyProductAdded = By.cssSelector(".slds-pill__label.stretch.ng-binding");
+    public static By tradingTPPartnerForProduct = By.xpath("//input[@placeholder='Select a partner']");
+    public static By relatedRequestSearchBox = By.id("txtRelatedRequestMod");
+    static Date objdate = new Date();
+    static String selectDate = new SimpleDateFormat("dd").format(objdate);
+    static int date1 = Integer.parseInt(selectDate);
+    static int date2 = date1 + 1;
+    public static By tdPickCurrentDate = By.xpath("//span[contains(.,'" + date2 + "')]");
+
+ // Confirm request
+ public static By confirmReq = By.xpath("//div[@class='slds-modal slds-fade-in-open slds-modal--large']/div/div[3]/button[3]/span[text()='Yes']");
+ public static By sendReq = By.xpath("//span[@class='ng-binding ng-scope'][text()='Send']");
+ public static By selectTP = By.xpath("//span[@class='clickable ng-binding']");
+public static By newBtn = By.xpath("//div[@class='slds-truncate'][text()='New']");
+public static By textSendReq = By.xpath("//p[@class='slds-p-around--medium ng-binding'][text()='Please select the partner you would like to send this request for:']");
+ public static By sendDuplicateReqtoTP = By.xpath("//p[@class='slds-p-around--medium ng-binding'][text()='A request already exists for the following partner. Please select the partner you wish to send the new request for:']");
+}
+
+
+
+// Locators End
+
+// Logics Start
+
+package icix.Modules;
+
+import com.codeborne.selenide.*;
+import icix.Locators.ProductRepo;
+import icix.Locators.RequestRepo;
+import icix.Locators.ThreeActorRepo;
+import icix.Start.Start;
+import icix.TestData.GlobalTestData;
+import icix.TestData.ProductTestData;
+import icix.TestData.RequestTestData;
+import icix.Utils.*;
+import org.bouncycastle.util.test.TestFailedException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byTitle;
+import static com.codeborne.selenide.Selenide.*;
+import static icix.Modules.ICIX_Common.GetButtonOfOpenedModalDialog;
+import static icix.Modules.ICIX_Common.GetOpendModalDialog;
+import static icix.Modules.ICIX_Common.SelectIcixAnswerOptionItem;
+import static icix.Modules.IcixTasks.DeleteCurrentFilter;
+import static icix.Utils.Common.*;
+import static icix.Utils.TestBase.*;
+import static java.lang.Thread.sleep;
+
+/**
+ * @author smartData
+ *         <h1>Request module</h1>
+ *         <p>
+ *         Purpose: This class is part of 2 Actor module.
+ *         </p>
+ *         It is used to handle all the functionalities related with 2 Actor
+ *         module
+ **/
+
+public class Request {
+	Map<editGetDataKey, String> editGetDataResult = new HashMap<>();
+	public RequestTestData requestTestData = new RequestTestData();
+	String strTaskFilterName = "";
+	String reqName = "";
+
+	public RequestTestData getRequestTestData() {
+		return requestTestData;
+	}
+
+	public void setRequestTestData(RequestTestData requestTestData) {
+		this.requestTestData = requestTestData;
+	}
+
+	/**
+	 * <h1>OpenRequestPage
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Open Request Page
+	 * </p>
+	 */
+	public void OpenRequestPage() throws Exception {
+		logTestStep("Open Request Page");
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+	}
+
+	/**
+	 * <h1>OpenNewRequestForm
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Open New Request Form to create a new request
+	 * </p>
+	 */
+	public void OpenNewRequestForm() throws Exception {
+		logTestStep("Open new request form");
+		sleep(2000);
+		ClickElement(RequestRepo.newBtn, "New Request Button");
+		sleep(2000);
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+	}
+
+	/**
+	 * <h1>SelectTradingPartner
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Select Trading Partner for new request . We
+	 * can pass comma separated value to select multiple trading partners
+	 * </p>
+	 */
+	public void SelectTradingPartners(String tradingPartners) throws Exception {
+		logTestStep("Select Trading Partner(s):" + tradingPartners);
+		for (String tradingPartner : tradingPartners.split(",")) {
+			// $("#radio_request_type_tp").parent().$("input.slds-input[role='combobox']").setValue(tradingPartner);
+			$x("//span[text()='Trading Partner']/following::input[1]").setValue(tradingPartner);
+			sleep(2000);
+			ICIX_Common.SelectIcixAnswerOptionItem(tradingPartner);
+			sleep(1000);
+			boolean result = $$(".slds-pill.ng-scope.slds-pill--editable .slds-pill__label").filter(visible).texts()
+					.contains(tradingPartner);
+			logTestStepPassOrFail(result, "Select Trading partner:" + tradingPartner);
+		}
+	}// end method
+
+	/**
+	 * <h1>SelectProduct
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Select Product for new request . We can pass
+	 * comma separated value to select multiple products
+	 * </p>
+	 */
+	public void SelectProduct(String products) throws Exception {
+		logTestStep("Select product(s):" + products);
+		if (!$("#radio_request_type_product").waitUntil(visible, DEFAULT_WAIT).isSelected()) {
+			$$("label").filter(Condition.visible).findBy(text("Product")).click();
+		}
+
+		for (String product : products.split(",")) {
+			/*
+			 * $$("label").filter(Condition.visible) .findBy(text("Product")) .parent()
+			 * .$("input.slds-input[role='combobox']", 0).setValue(product); sleep(3000);
+			 */
+			$x("//span[text()='Product']/following::input[1]").setValue(product);
+			ICIX_Common.SelectIcixAnswerOptionItem(product);
+			boolean result = $$(".slds-pill.ng-scope.slds-pill--editable .slds-pill__label").filter(visible).texts()
+					.contains(product);
+			logTestStepPassOrFail(result, "Select product: " + product);
+		}
+	}// end method
+
+	/**
+	 * <h1>SelctTradinPartnerForProduct</h1>
+	 * <p>
+	 * Select a trading partner for product. User can select multiple trading
+	 * partners pass by comma separated
+	 * </p>
+	 *
+	 * @param tradingPartners
+	 */
+	public void SelectTradingPartnerForProduct(String tradingPartners) throws Exception {
+		logTestStep("Select trading partner for product: " + tradingPartners);
+		for (String tradingPartner : tradingPartners.split(",")) {
+			SelenideElement label = $$("label").filter(visible).findBy(text("Trading Partner(s)"));
+			label.parent().$("input.slds-input[role='combobox']", 0).sendKeys(tradingPartner);
+			sleep(4000);
+			ICIX_Common.SelectIcixLookupItem(tradingPartner);
+			boolean result = $$(".slds-pill.ng-scope.slds-pill--editable .slds-pill__label").filter(visible).texts()
+					.contains(tradingPartner);
+			logTestStepPassOrFail(result, "Select trading partner for product: " + tradingPartner);
+		}
+	}// end method
+
+	/**
+	 * <h1>EnterRequestName
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to input new request
+	 * </p>
+	 */
+	public void EnterRequestName(String requestName) throws Exception {
+		ClearAndSendKeys(RequestRepo.txtRequestName, requestName, "Request Name Filed");
+		GlobalTestData.RequestsToDelete.add(requestName);
+	}
+
+	/**
+	 * <h1>GetRequestName
+	 * <h1/>
+	 */
+	public String getRequestName() throws Exception {
+		return $(RequestRepo.txtRequestName).val();
+	}
+
+	/**
+	 * <h1>EnterRequestComment
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to input new request comment
+	 * </p>
+	 */
+	public void EnterRequestComment(String comment) throws Exception {
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, comment, "Send Request Comment field");
+	}
+
+	/**
+	 * <h1>ClickSend</h1>
+	 * <p>
+	 * Click send button on new request page
+	 * </p>
+	 * 
+	 * @throws Exception
+	 */
+	public void ClickSend() throws Exception {
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+	}
+
+	/**
+	 * <h1>Click select document / forms button
+	 * <h1/>
+	 */
+
+	public void clickSelectDocumentOrForm() {
+		$("[ng-click='openFormList()']").click();
+	}
+
+	/**
+	 * <h1>Attach Form
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to attach form in request page while sending 2
+	 * Actor Request
+	 * </p>
+	 * 
+	 * @param formName
+	 */
+
+	public void attachForm(String category, String formName) throws InterruptedException {
+		logTestStep("Attach Document/Form with request");
+		clickSelectDocumentOrForm();
+		logTestStep(String.format("Select form '%s' from with category '%s'", formName, category));
+		$(By.linkText(category)).click();
+		sleep(2000);
+		SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+		SelenideElement elm = modalDialog.$$(".panel-content label.slds-checkbox").findBy(exactText(formName))
+				.waitUntil(visible, DEFAULT_WAIT);
+		elm.scrollIntoView(true).click();
+		ICIX_Common.GetFooterButtonOfOpenedModalDialog("Attach").click();
+		ICIX_Common.GetFooterButtonOfOpenedModalDialog("Save").click();
+	}
+
+	/**
+	 * <h1>Verify Request And Workflow Status
+	 * <h1/>
+	 * <p>
+	 * Purpose:This method is used to verify request and workflow statues using
+	 * Request status workflow status and request name as a parameter
+	 * </p>
+	 *
+	 * @param RequestStatus,WorkflowStatus,requestName
+	 * @throws Exception
+	 */
+	public static void verifyRequestAndWorkflowStatus(String RequestStatus, String WorkflowStatus, String requestName)
+			throws Exception {
+		Request ObjReq = new Request();
+		logTestStep(String.format("Verify |Request status = %s|Workflow status = %s for request name = %s",
+				RequestStatus, WorkflowStatus, requestName));
+
+		ObjReq.searchRequest(AppLauncherItems.REQUESTS, requestName);
+		sleep(4000);
+		RefreshPage();
+		assertText(RequestRepo.txtRequestStatus, RequestStatus);
+
+		ClickElement(By.xpath("(//span[contains(text(),'Related')])[position()=1]"), "Request");
+		String workflowStatus = String.format("(//span[contains(.,'%s')])[position()=1]", WorkflowStatus);
+		assertText(RequestRepo.workflowStatus, WorkflowStatus);
+
+	}
+
+	/**
+	 * <h1>Get Status of current request</h1>
+	 * <p>
+	 * Purpose: This method will get the request status from Request Details page
+	 * </p>
+	 * 
+	 * @return
+	 */
+	public String GetStatus() throws Exception {
+		PageTabs.Details.OpenTab();
+		return PageTabs.Details.GetFieldText("Status");
+	}
+
+	public static void verifyRequestAndWorkflowStatusUpdated(String RequestStatus, String WorkflowStatus,
+			String requestName) throws Exception {
+		Request ObjReq = new Request();
+		logTestStep(String.format("Verify |Request status = %s|Workflow status = %s for request name = %s",
+				RequestStatus, WorkflowStatus, requestName));
+		GlobalSearchs(AppLauncherItems.REQUESTS, requestName);
+		String ReqName = requestName;
+		String xp = String.format("//table//tbody/tr/th//a[contains(text(),'%s')]", requestName.trim());// New Added
+		String s1 = $$x(xp).filter(Condition.visible).first().getText();
+		String s2 = $$x(xp).filter(Condition.visible).last().getText();
+		String s3, s4;
+		s3 = s1.substring(ReqName.length(), s1.length());
+		s4 = s2.substring(ReqName.length(), s2.length());
+		DateFormat timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date d1 = timeStamp.parse(s3);
+		Date d2 = timeStamp.parse(s4);
+		// System.out.println(d1);
+		if (d1.compareTo(d2) == 1) {
+			$$x(xp).filter(Condition.visible).first().click();
+		} else {
+			$$x(xp).filter(Condition.visible).last().click();
+		}
+		sleep(5000);
+		RefreshPage();
+		assertText(RequestRepo.txtRequestStatus, RequestStatus);
+		sleep(3000);
+		RefreshPage();
+		sleep(3000);
+		ClickElement(By.xpath("(//span[contains(text(),'Related')])[position()=1]"), "Request");
+		sleep(5000);
+		// String workflowStatus =
+		// String.format("(//span[contains(.,'%s')])[position()=1]", WorkflowStatus);
+		assertText(RequestRepo.workflowStatus, WorkflowStatus);
+
+	}
+
+	public void sendReqPopup() throws Exception {
+		sleep(4000);
+		// slds-modal__content
+		WebElement openedModalElm = GetOpendModalDialog();
+		if ($(openedModalElm).$$(By.xpath(
+				"//div[@id='sendRequestTable']//p[contains(text(),'A request already exists for the following')]"))
+				.size() > 0) {
+			switchToActiveFrame();
+			$(openedModalElm).$$(".slds-checkbox input").forEach(elm -> {
+				if (!elm.isSelected()) {
+					elm.closest("label").click();
+				}
+			});
+
+			SelenideElement btnYes = $(GetButtonOfOpenedModalDialog("Yes"));
+			if (btnYes.isEnabled()) {
+				btnYes.click();
+				sleep(3000);
+			} else {
+				throw new TestStepFailException("Yes button is not enabled in Send Request popup");
+			}
+			Log.info("Request has already sent");
+		} else {
+			ICIX_Common.GetFooterButtonOfOpenedModalDialog("Yes").click();
+
+		}
+	}// End- sendReqPopup
+
+	public void sendReqPopup(String tpName) throws Exception {
+		sleep(3000);
+		WebElement openedModalElm = GetOpendModalDialog();
+		if ($(openedModalElm).$$(By.xpath(
+				"//div[@id='sendRequestTable']//p[contains(text(),'A request already exists for the following')]"))
+				.size() > 0) {
+			switchToActiveFrame();
+
+			/*
+			 * $(openedModalElm).$$(".slds-checkbox--faux").forEach(elm->elm.click());
+			 * sleep(2000);
+			 */
+			$(openedModalElm).$$(".slds-checkbox input").forEach(elm -> {
+				if (!elm.isSelected()) {
+					elm.closest("label").click();
+				}
+			});
+
+			SelenideElement btnYes = $(GetButtonOfOpenedModalDialog("Yes"));
+			if (btnYes.isEnabled()) {
+				btnYes.click();
+				sleep(3000);
+			} else {
+				throw new TestStepFailException("Yes button is not enabled in Send Request popup");
+			}
+			Log.info("Request has already sent");
+		} else {
+			sleep(3000);
+			WebElement getTPNameFormPopup = $$(".ng-scope .slds-hint-parent").filter(visible).first();
+			Boolean result = getTPNameFormPopup.getText().contains(tpName);
+			logTestStepPassOrFail(result, "Verify TP name on conformation popup > " + tpName);
+			ICIX_Common.GetFooterButtonOfOpenedModalDialog("Yes").click();
+
+		}
+	}// End- sendReqPopup
+
+	/**
+	 * <h1>Login to application
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Login to application with Request user name
+	 * and password
+	 * </p>
+	 *
+	 * @param RequesterUserName,RequesterPassword
+	 * @throws Exception
+	 */
+	public void Login(String RequesterUserName, String RequesterPassword) throws Exception {
+		LoginUser(RequesterUserName, RequesterPassword);
+		SwitchToLightiningView();
+	}
+
+	/**
+	 * <h1>Verify Request and Workflow Status
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to verify request and workflow status
+	 * </p>
+	 *
+	 * @param status
+	 * @throws Exception
+	 */
+
+	public void VerifyRequestStatus(String status) {
+		switch (status) {
+
+		case "Open":
+			if (getElementText(RequestRepo.SpanWorkFlowStatusOpen, 2000).contains("Open"))
+				Assert.assertTrue(true, "Status is open");
+			Log.info("The status is open.");
+			break;
+
+		case "Approved":
+			if (getElementText(RequestRepo.SpanWorkFlowStatusApprove, 2000).contains("Approved"))
+				Assert.assertTrue(true, "Status approved successfully");
+			Log.info("The status is approved.");
+			break;
+
+		case "Cancelled":
+			if (getElementText(RequestRepo.SpanWorkFlowStatusCancelled, 2000).contains("Cancelled"))
+				Assert.assertTrue(true, "Status cancelled successfully");
+			Log.info("The status is cancelled.");
+			break;
+
+		case "Closed":
+			if (getElementText(RequestRepo.SpanWorkFlowStatusClosed, 2000).contains("Closed"))
+				Assert.assertTrue(true, "Status closed successfully");
+			Log.info("The status is Closed.");
+			break;
+
+		default:
+			Log.info("Invalid status");
+			break;
+		}
+
+		SwitchToDefaultContent(0);
+	}
+
+	/**
+	 * <h1>Send Normal TP and Product Request
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Send Normal 2 Actor TP and Product Request
+	 * </p>
+	 *
+	 * @param objRTD
+	 * @throws Exception
+	 */
+
+	public void sendRequest(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		sleep(2000);
+
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		if (!objRTD.getRequestName().equalsIgnoreCase(" "))
+			assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		// sendReqPopup(requestTestData.getTpOrPrdctName());
+		sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	/**
+	 * <h1>Send Normal TP and Product Request
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Send Normal 2 Actor TP and Product Request
+	 * </p>
+	 *
+	 * @param objRTD
+	 * @throws Exception
+	 */
+
+	public void sendProductRequestWithExtraTP(RequestTestData objRTD, String extraTP) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		sleep(3000);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		sleep(2000);
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		if (!objRTD.getRequestName().equalsIgnoreCase(" "))
+			assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+
+			TestBase.logTestStep("Select Extra TP: " + extraTP);
+			$$("input[type='text'][role='combobox']").filter(visible).last().setValue(extraTP);
+			sleep(3000);
+			$$(".clickable.ng-binding").filter(visible).findBy(text(extraTP)).click();
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		// sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		Common.sendReqPopup();
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	/**
+	 * <h1>VerifyUserCanAdd_AdditionalTPInProductRequest
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is test method
+	 * </p>
+	 *
+	 * @param objRTD
+	 * @throws Exception
+	 */
+
+	public void VerifyUserCanAdd_AdditionalTPInProductRequest(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		sleep(3000);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		sleep(2000);
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		if (!objRTD.getRequestName().equalsIgnoreCase(" "))
+			assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+
+			logTestStep("Add additional TP > " + GlobalTestData.Lab_Admin.getName());
+			$$("label").filter(visible).findBy(text("Trading Partner(s)")).closest("div[@class='slds-form-element']")
+					.$("input.slds-input[type='text']").setValue(GlobalTestData.Lab_Admin.getName());
+			ClickElement(By.xpath("//span[@class='clickable ng-binding'][contains(text(),'"
+					+ GlobalTestData.Lab_Admin.getName() + "')]"), "Select Trading Partner");
+			sleep(2000);
+			List<String> tps = $$(".slds-pill__label.stretch.ng-binding").filter(visible).texts();
+
+			logTestStepPassOrFail(tps.contains(GlobalTestData.Lab_Admin.getName()),
+					"Verify Additional TP is added to list");
+
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		// sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		Common.sendReqPopup();
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	// Verify Request is rejected at responder
+	public void VerifyRequestIsRejectedAtRequester(String RequestName) throws Exception {
+		logTestStep("Verify workflow status is 'Rejected by Requestor'");
+		GlobalSearch(AppLauncherItems.WORKFLOWS, RequestName);
+		waitForPageLoadToComplete();
+		waitForWorkflowStatusIs("Rejected by Requestor", 2);
+		assertText(RequestRepo.txtWorkflowStatus, "Rejected by Requestor");
+		logTestStep("Verify rejection of request-PASS");
+		RefreshPage(7000);
+	}
+
+	/**
+	 * <h1>Open Form For a Request
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Fill and Submit 2 Actor Request
+	 * </p>
+	 *
+	 * @param objRTD
+	 * @throws Exception
+	 */
+	public void OpenFormForARequest(RequestTestData objRTD) throws Exception {
+		sleep(2000);
+		logTestStep("Open form for request: " + objRTD.getRequestName());
+		logTestStep("Search request: " + objRTD.getRequestName());
+		verifyWorkflowStatus(objRTD.getWorkflowStatus(), objRTD.getRequestName());
+		this.strTaskFilterName = "AutoTaskFilter" + " " + GetTimeStamp();
+		Common.verifyRequestIsDisplayedInICIXTask(objRTD.getRequestName(), strTaskFilterName);
+		logTestStep("Click on Open Form button");
+		$(".task-right .slds-button-group.ng-scope").$x("//a[contains(text(),'Open Form')]").click();
+
+		sleep(2000);
+		Start.SwitchToSecondWindow();
+		waitForPageLoadToComplete();
+		sleep(3000);
+		$(By.xpath("//h1[contains(@class,'slds-page-header__title')]")).waitUntil(appear, DEFAULT_WAIT);
+		assertText($(By.xpath("//h1[contains(@class,'slds-page-header__title')]")).getText(), objRTD.getDocName());
+	}
+
+	/**
+	 * <h1>Fill and Submit 2 Actro Request
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Fill and Submit 2 Actor Request
+	 * </p>
+	 *
+	 * @param objRTD
+	 * @throws Exception
+	 */
+
+	public void SubmitForm_WithoutFill(Workflow.WorkflowStatusType statusType, RequestTestData objRTD)
+			throws Exception {
+		objRTD.setWorkflowStatus(statusType.getValue());
+		OpenFormForARequest(objRTD);
+		ClickElement(RequestRepo.btnFormSubmit, "Submit Button");
+		sleep(8000);
+		logTestStep("Form submitted successfully");
+		Start.CloseExtraWindows();
+	}
+
+	public void SubmitForm_AfterEnteringData(Workflow.WorkflowStatusType statusType, RequestTestData objRTD)
+			throws Exception {
+		objRTD.setWorkflowStatus(statusType.getValue());
+		OpenFormForARequest(objRTD);
+		FormList objForm = new FormList();
+		objForm.InputValueInFormField("Question-0?", "Auto");
+		objForm.InputValueInFormField("Question-1?", "Auto");
+		uploadDocumentInRequestForm();
+		$(".slds-form-element__control textarea").setValue("Auto");
+		ClickElement(RequestRepo.btnFormSubmit, "Submit Button");
+		sleep(8000);
+		logTestStep("Form submitted successfully");
+		Start.CloseExtraWindows();
+	}
+
+	/**
+	 * <h1>Verify Corrective Action Request
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Verify Corrective Action Request
+	 * </p>
+	 *
+	 * @param requestName
+	 * @throws Exception
+	 */
+
+	public void VerifyRequestAvailableWithStatus(String requestName, String status) throws Exception {
+		GlobalSearch(AppLauncherItems.REQUESTS, requestName);
+		if (!$$x("//img[@title='Request' and @alt='Request']").first().waitUntil(appear, DEFAULT_WAIT).isDisplayed()) {
+			throw new Exception("User is not at request page or it is not loaded properly");
+		}
+		logTestStep("Verify expected request status is :" + status);
+		System.out.println($(RequestRepo.txtRequestStatus).toString());
+
+		assertText(RequestRepo.txtRequestStatus, status);
+
+	}
+
+	/**
+	 * <h1>Verify Fielded data
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Verify data fielded by responder at requester
+	 * end for 3 Actor Request
+	 * </p>
+	 *
+	 * @param RequestName,ContainerName,AttentionComments
+	 * @throws Exception
+	 */
+
+	public void Verifyquestionresponder(String RequestName, String ContainerName, String AttentionComments)
+			throws Exception {
+		GlobalSearch(AppLauncherItems.REQUESTS, RequestName);
+
+		ClickLink(RequestName);
+		ClickLink(ContainerName);
+
+		List<WebElement> ArrowToOpenMenu = FindAllElements(RequestRepo.ArrowToOpenMenu);
+
+		if (ArrowToOpenMenu.size() > 0) {
+			if (ArrowToOpenMenu.size() > 1) {
+				ClickElement(ArrowToOpenMenu.get(1), "Arrow to open form");
+			} else {
+				ClickElement(ArrowToOpenMenu.get(0), "Arrow to open form");
+			}
+		}
+
+		ClickElement(RequestRepo.OptionToOpenForm, "Open From Link");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		WebElement a = FindAnElement(RequestRepo.Question);
+		String TextboxQuestion = a.getAttribute("value");
+		Assert.assertEquals(TextboxQuestion, AttentionComments, "Not Working Properly");
+
+	}
+
+	/**
+	 * <h1>Find Request From List
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to Find Request From Request List
+	 * </p>
+	 *
+	 * @throws Exception
+	 */
+
+	public void findRequestFromListing() throws Exception {
+		clickAppLauncher();
+		ClickElement(RequestRepo.lnkRequests, "Request Link");
+		ClickElement(RequestRepo.reqRecentlyViewed, "RecentlyViewed");
+		ClickElement(RequestRepo.reqViewAll, "View All");
+
+		do {
+			ClickElement(RequestRepo.btnRefreshListing, "RefreshListing Button");
+		} while (checkExistenceOfElement(RequestRepo.txtRequestName) == false);
+
+		ClickElement(RequestRepo.txtRequestName, "Request Name Field");
+	}
+
+	/**
+	 * <h1>Select Form
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to select form
+	 * </p>
+	 *
+	 * @param
+	 * @throws Exception
+	 */
+	public void attchForms(String formNames) throws Exception {
+		logTestStep("Select forms:" + formNames);
+		clickSelectDocumentOrForm();
+		ClickElement(RequestRepo.lnkDocCategory, "Document Category");
+
+		SelenideElement modalForm = $$(".slds-modal").filter(visible).first();
+		logTestStep("Pop up Heading: " + modalForm.$(".slds-modal__header").text());
+		modalForm.$(".slds-grid").$(".scrollable-column", 0).$(By.linkText("All")).click();
+
+		SelenideElement formsContainer = modalForm.$(".slds-grid").$(".scrollable-column", 1);
+		for (String formName : formNames.split(",")) {
+			formsContainer.$$("label.slds-checkbox").filter(visible).findBy(text(formName)).scrollIntoView(true)
+					.click();
+		}
+
+		ClickElement(RequestRepo.btnAttach, "Attach Button");
+		ClickElement(RequestRepo.btnSaveOnPopup, "Save Button");
+
+	}
+
+	/**
+	 * <h1>Search Request
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to search request
+	 * </p>
+	 *
+	 * @param moduleName,KeywordToSearch
+	 * @throws Exception
+	 */
+	public void searchRequest(AppLauncherItems moduleName, String KeywordToSearch) throws Exception {
+//        openAppLauncher();
+//        ClickAppLauncherItem("FormList");
+		sleep(3000);
+		GlobalSearch(moduleName, KeywordToSearch);
+		sleep(3000);
+	}
+
+	/**
+	 * <h1>Verify Request Has A Product Associated
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to search request and check whether it has a
+	 * product associated or not
+	 * </p>
+	 *
+	 * @param ModuleName, RequestTestData
+	 * @throws Exception
+	 */
+
+	public void verifyRequestHasAProduct(AppLauncherItems ModuleName, RequestTestData objRTD) throws Exception {
+		SwitchToDefaultContent(3000);
+		logTestStep("Request name:" + objRTD.getRequestName());
+		logTestStep("Expected Associated Product name:" + objRTD.getTpOrPrdctName());
+
+		this.searchRequest(ModuleName, objRTD.getRequestName());
+		waitForPageLoadToComplete();
+		sleep(3000);
+		// Check Heading image loaded for Request page
+		boolean result = $x("(//img[@title='Request' and @alt='Request'])[position()=last()]")
+				.waitUntil(appear, DEFAULT_WAIT).is(appear);
+		Assert.assertTrue(result, "User is not on Request page or page has not loaded properly");
+		// Load Product Link which is associated with request at request details
+		// page/tab
+		$$(RequestRepo.txtAssociatedProductWithRequest).size();
+		assertText(RequestRepo.txtAssociatedProductWithRequest, objRTD.getTpOrPrdctName());
+		TestBase.logTestStepPass("Verified Request has a product");
+	}
+
+	/**
+	 * <h1>Select Next Month due date
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to select next month due date for request
+	 * </p>
+	 *
+	 * @throws Exception
+	 */
+	public void selectDueDateNextMonth() throws Exception {
+		sleep(1000);
+		ClickElement(RequestRepo.txtDueDate, "Due Date");
+		$(byTitle("Next Month")).waitUntil(visible, 5000).click();
+		$$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").click();
+	}
+
+	/**
+	 * <h1>Wait for workflow status update
+	 * <h1/>
+	 * <p>
+	 * Purpose: This method is used to wait for given workflow status update for
+	 * maximum time in minutes
+	 * </p>
+	 * <p>
+	 * Maximum time is 20 minutes
+	 * </p>
+	 *
+	 * @param status, maxWaitMinutes
+	 * @throws Exception
+	 */
+
+	public boolean waitForWorkflowStatusIs(String status, int maxWaitMinutes) throws Exception {
+		JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+		js.executeScript("window.scrollBy(0,4000)");
+		sleep(5000);
+		if (maxWaitMinutes > 20) {
+			throw new Exception("Too much wait minute is given for workflow status to update:" + maxWaitMinutes);
+		}
+		if (!$$x("//img[@title='Workflow' and @alt='Workflow']").first().waitUntil(appear, DEFAULT_WAIT)
+				.isDisplayed()) {
+			throw new Exception("User is not at Workflow page or it is not loaded properly");
+		}
+
+		logTestStep("Verify workflow status is -> " + status);
+		boolean result = false;
+		long startTime = System.currentTimeMillis();
+		int waitCount = 0;
+		int tryCount = 1;
+		do {
+			Log.info("Check Workflow Status Updated Try# " + tryCount);
+			tryCount++;
+			PageTabs.Details.OpenTab();
+
+			String text = PageTabs.Details.GetFieldText("Status");
+			Log.info("Current workflow status: " + text);
+			// If Workflow status is already approved
+			if (!status.equalsIgnoreCase("Approved") && text.equalsIgnoreCase("Approved")) {
+				logTestStep("Workflow status is already Approved.");
+				result = true;
+				break;
+			}
+			if (text.equalsIgnoreCase(status)) {
+				result = true;
+				Log.info("Workflow status updated time taken in ms: " + (System.currentTimeMillis() - startTime));
+				break;
+			} else {
+				Log.info("Status not updated-> Wait for 15 sec to update workflow status and refresh page");
+				sleep(12000);
+				if (waitCount >= 60)
+					ExecuteBatchMessageProcessor.ExecuteBatchWithLastLoginUser();
+				RefreshPage();
+				waitForPageLoadToComplete();
+				sleep(3000);
+				waitCount = waitCount + 15;
+				// If Wait is 1 min then execute batch again
+			}
+			if (waitCount >= (maxWaitMinutes * 60)) {
+				throw new Exception("Workflow status is not updated after " + maxWaitMinutes + " min");
+			}
+
+		} while (result != true);
+
+		return result;
+	}
+
+	public void VerifyRequestDisplayedInICIXTask(RequestTestData objRTD) throws Exception {
+		sleep(1000);
+		{
+			int counter = 0;
+			while (counter < 3) {
+				if ($(By.xpath("//*[contains(@class,'modal-body')]")).is(not(visible))) {
+					openAppLauncher();
+					counter++;
+				} else {
+					break;
+				}
+			}
+		}
+		TestBase.logTestStep("Open ICIX Task List");
+		ClickAppLauncherItem(AppLauncherItems.ICIXTASKS);
+		waitForPageLoadToComplete();
+		sleep(10000);
+		logScreenshot("ICIXTask");
+		// $(".dotsSpinner").waitUntil(Condition.disappear, DEFAULT_WAIT);
+		switchToActiveFrame();
+		sleep(3000);
+//        if($(By.id("taskDropdown")).isDisplayed()){
+//            $(By.id("taskDropdown")).click();
+//            sleep(2000);
+//        }
+
+		// Load ICIX Tasks
+		$$("tr").shouldHave(CollectionCondition.sizeGreaterThan(0));
+		String taskName = "NA";
+		TestBase.logTestStep("Retrieve ICIX Task");
+		logScreenshot("ICIXTaskList");
+		// $(By.partialLinkText("Advanced
+		// Filtering")).waitUntil(appear,DEFAULT_WAIT).click();
+		$(By.partialLinkText("New List View")).waitUntil(appear, DEFAULT_WAIT).click();
+		sleep(5000);
+		$(By.id("fName")).waitUntil(visible, DEFAULT_WAIT).setValue("AutoTaskList" + " " + GetTimeStamp());
+		sleep(2000);
+		// Common.SelectDropdownText( By.id("Forms"),formName);
+		// Common.SelectDropdownText(By.xpath("(//select[@id='Forms'])[position()=2]"),
+		// requestTestData.getDocName());
+		$x("//input[@placeholder='Select a Form']").setValue(objRTD.getDocName());
+		$x("//span[@class='clickable ng-binding'][contains(.,'" + objRTD.getDocName() + "')]")
+				.waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		sleep(3000);
+		$(By.xpath(".//*[text()='Save']")).click();
+		sleep(10000);
+
+		for (SelenideElement elm : $$x("//tr/td[1]/span[contains(@class,'slds-text-body--regular')]")) {
+			if (elm.getText().contains(objRTD.getRequestName())) {
+				Log.info("New task found");
+				taskName = elm.getText();
+				sleep(3000);
+				elm.click();
+				break;
+			}
+		}
+
+		// Assert.assertTrue(requestName.equalsIgnoreCase(taskName),"Task not found in
+		// list");
+		Assert.assertTrue(taskName.contains(objRTD.getRequestName()), "Task not found in list");
+
+	}
+
+	/**
+	 * <h1>Submit Request From ICIX Tasks
+	 * <h1/>
+	 * <p>
+	 * Purpose:This method is used to Submit Request From ICIX Tasks
+	 * </p>
+	 *
+	 * @param requestName,formName
+	 * @throws Exception
+	 */
+
+	public void SubmitFormFromICIXTasks(String requestName, String formName) throws Exception {
+		GlobalSearchs(AppLauncherItems.REQUESTS, requestName);
+
+		performActionOnICIXTasks(requestName, formName, "Open Form");
+
+		String winHandleBefore = getDriverInstance().getWindowHandle();
+		// Switch to new window opened
+		for (String winHandle : getDriverInstance().getWindowHandles()) {
+			getDriverInstance().switchTo().window(winHandle);
+		}
+		// Perform the actions on new window
+		sleep(3000);
+		ClickElement(RequestRepo.btnFormSubmit, "Submit Button");
+
+		// Close the new window, if that window no more required
+		getDriverInstance().close();
+
+		// Switch back to original browser (first window)
+		getDriverInstance().switchTo().window(winHandleBefore);
+		sleep(3000);
+	}
+
+	/**
+	 * <h1>Approve Request From ICIX Tasks
+	 * <h1/>
+	 * <p>
+	 * Purpose:This method is used to Approve Request From ICIX Tasks
+	 * </p>
+	 *
+	 * @param requestName,formName,Comments
+	 * @throws Exception
+	 */
+	public void approveRequestFromTasks(String requestName, String formName, String Comments)
+			throws TestStepFailException {
+		try {
+			sleep(2000);
+			TestBase.logTestStep("Approve request from ICIX task");
+			Common.GlobalSearch(AppLauncherItems.WORKFLOWS, requestName);
+			Common.RefreshPage(3000);
+			Log.info("Wait for request to update");
+			waitForWorkflowStatusIs("Submitted by Responder", 5);
+			// Approve Request from ICIX tasks
+
+			performActionOnICIXTasks(requestName, formName, "Approve");
+			// newPerformActionOnICIXTasks(requestName,"Accept and Cancel");
+
+			switchToActiveFrame();
+			sleep(5000);
+			ClearAndSendKeys(RequestRepo.txtApproveComments, Comments, "Approve Comment");
+
+			sleep(2000);
+			ClickElement(RequestRepo.btnSaveApprovedComments, "Save Button");
+			sleep(10000);
+			RefreshPage(7000);
+			logTestStep("Verify requester is redirected to ICIX task page on approving a request from ICIX Tasks page");
+			verifyUserIsOnICIXTasks();
+			// Delete the new filter created
+			switchToActiveFrame();
+			TestBase.logTestStep("Delete Task filter: " + this.strTaskFilterName);
+			if ($(".task-name").closest("header").find("h1").text().equalsIgnoreCase(this.strTaskFilterName)) {
+				$(By.partialLinkText("Delete List View")).waitUntil(appear, DEFAULT_WAIT).click();
+				sleep(5000);
+				TestBase.logTestStepPass("Delete Task filter: " + this.strTaskFilterName);
+			} else {
+				TestBase.logTestStep("Task filter not deleted a different task filter selected");
+			}
+
+			// Verify Request is rejected at responder
+			logTestStep("Verify workflow status is 'Approved'");
+			GlobalSearch(AppLauncherItems.WORKFLOWS, requestName);
+			waitForPageLoadToComplete();
+			waitForWorkflowStatusIs("Approved", 5);
+			assertText(RequestRepo.txtWorkflowStatus, "Approved");
+			logTestStep("Verify approve request-PASS");
+		} catch (Exception e) {
+			throw new TestStepFailException("Failed to approve request from tasks");
+		}
+
+		// Delete
+		try {
+			// deleteIcixTaskFilter("AutoTaskList");
+		} catch (Exception ex) {
+			Log.info("There was a problem in deletion of Task filter: " + ex.getMessage());
+		}
+
+	}
+
+	/**
+	 * <h1>Reject Request From ICIX Tasks
+	 * <h1/>
+	 * <p>
+	 * Purpose:This method is used to Reject Request From ICIX Tasks
+	 * </p>
+	 *
+	 * @param requestName,formName,Comments
+	 * @throws Exception
+	 */
+
+	public void rejectRequestFromTasks(String requestName, String formName, String Comments)
+			throws TestFailedException, TestStepFailException, InterruptedException {
+
+		try {
+			sleep(2000);
+			Workflow workflow = new Workflow(requestName);
+			workflow.OpenWorkflow();
+			Common.RefreshPage(3000);
+			Log.info("Wait for request to update");
+			workflow.waitForWorkflowStatusIs(Workflow.WorkflowStatusType.SUBMITTED_BY_RESPONDER, 5);
+			// Reject Request from ICIX tasks
+			IcixTasks.OpenICIXTaskPage();
+			IcixTasks.CreateFilter(IcixTasks.FilterStatus.OPEN, formName, "");
+			IcixTasks.SearchAndClickTaskWithRequestName(requestName);
+			IcixTasks.PerformAction(IcixTasks.Action.REJECT);
+			IcixTasks.Add_ApproveOrReject_Comment(Comments);
+			RefreshPage(7000);
+			verifyUserIsOnICIXTasks();
+			// Delete the new filter created
+			switchToActiveFrame();
+			TestBase.logTestStep("Delete Task filter: " + this.strTaskFilterName);
+			if ($(".task-name").closest("header").find("h1").text().equalsIgnoreCase(this.strTaskFilterName)) {
+				$(By.partialLinkText("Delete List View")).waitUntil(appear, DEFAULT_WAIT).click();
+				sleep(5000);
+				TestBase.logTestStepPass("Delete Task filter: " + this.strTaskFilterName);
+			} else {
+				TestBase.logTestStep("Task filter not deleted a different task filter selected");
+			}
+
+			logTestStep("Verify workflow status is 'Rejected by Requestor'");
+			workflow.OpenWorkflow();
+			workflow.waitForWorkflowStatusIs(Workflow.WorkflowStatusType.REJECTED_BY_REQUESTOR, 5);
+			logTestStepPassOrFail(true, requestName + " request is rejected");
+		} catch (Exception ex) {
+			throw new TestStepFailException("Failed to reject request from icix task");
+		}
+	}
+
+	/**
+	 * <h1>Perform Actions(Ex, Approve,Reject,SubmitForm) From ICIX Tasks
+	 * <h1/>
+	 * <p>
+	 * Purpose:This method is used to Perform Actions(Ex, Approve,Reject,SubmitForm)
+	 * From ICIX Tasks
+	 * </p>
+	 *
+	 * @param requestName,formName,Action
+	 * @throws Exception
+	 */
+
+	public void performActionOnICIXTasks(String requestName, String formName, String Action) throws Exception {
+		sleep(1000);
+		{
+			int counter = 0;
+			while (counter < 3) {
+				if ($(By.xpath("//*[contains(@class,'modal-body')]")).is(not(visible))) {
+					openAppLauncher();
+					counter++;
+				} else {
+					break;
+				}
+			}
+		}
+		TestBase.logTestStep("Open ICIX Task List");
+		ClickAppLauncherItem(AppLauncherItems.ICIXTASKS);
+		waitForPageLoadToComplete();
+		sleep(10000);
+		logScreenshot("ICIXTask");
+		switchToActiveFrame();
+		sleep(3000);
+		$$("tr").shouldHave(CollectionCondition.sizeGreaterThan(0));
+		String taskName = "NA";
+		TestBase.logTestStep("Retrieve ICIX Task");
+		logScreenshot("ICIXTaskList");
+		// $(By.partialLinkText("Advanced
+		// Filtering")).waitUntil(appear,DEFAULT_WAIT).click();
+		$(By.partialLinkText("New List View")).waitUntil(appear, DEFAULT_WAIT).click();
+		sleep(5000);
+		$(By.id("fName")).waitUntil(visible, DEFAULT_WAIT).setValue("AutoTaskList" + " " + GetTimeStamp());
+		sleep(3000);
+
+		// Common.SelectDropdownText(By.xpath("(//select[@id='Forms'])[position()=2]"),
+		// formName);
+		$x("//input[@placeholder='Select a Form']").setValue(formName);
+		$x("//span[@class='clickable ng-binding'][contains(.,'" + formName + "')]")
+				.waitUntil(Condition.visible, DEFAULT_WAIT).click();
+
+		sleep(3000);
+		$(By.xpath(".//*[text()='Save']")).click();
+		sleep(13000);
+
+		for (SelenideElement elm : $$x("//tr/td[1]/span[contains(@class,'slds-text-body--regular')]")) {
+			if (elm.getText().contains(requestName)) {
+				Log.info("New task found");
+				taskName = elm.getText();
+				System.out.println("taskName =" + elm.getText());
+				sleep(5000);
+				elm.click();
+				sleep(4000);
+				break;
+			}
+		}
+		// Assert.assertTrue(requestName.equalsIgnoreCase(taskName),"Task not found in
+		// list");
+		System.out.println("ReqName " + requestName);
+		Assert.assertTrue(taskName.contains(requestName), "Task not found in list");
+
+		TestBase.logTestStep("Task is available in task list:" + taskName);
+		sleep(4000);
+		$(By.xpath("//div[@role='group']/a[contains(text(),'" + Action + "')]")).click();
+		sleep(5000);
+	}
+
+	/**
+	 * <h1>Perform Actions(Ex, Approve) From ICIX Tasks
+	 * <h1/>
+	 * <p>
+	 * Purpose:This method is used to Perform Actions (Ex, Approve) From new action
+	 * button from ICIX Tasks
+	 * </p>
+	 *
+	 * @param RequestName,Action
+	 * @throws Exception
+	 */
+
+	public void newPerformActionOnICIXTasks(String RequestName, String Action) throws Exception {
+		this.strTaskFilterName = "AutoTaskFilter" + " " + GetTimeStamp();
+		Common.verifyRequestIsDisplayedInICIXTask(RequestName, strTaskFilterName);
+		$(".block.bottomborder .slds-button-group .slds-button--icon-x-small").waitUntil(visible, DEFAULT_WAIT).click();
+		sleep(4000);
+		$(By.xpath("//div[@role='group']/a[contains(text(),'" + Action + "')]")).click();
+		sleep(5000);
+
+	}
+
+	public void deleteIcixTaskFilter(String taskFilterName) throws Exception {
+		Common.openAppLauncher();
+		Common.ClickAppLauncherItem(AppLauncherItems.ICIXTASKS);
+		sleep(10000);
+		switchToActiveFrame();
+		int totalFilterToDelete = GetICIXTaskFilterSize(taskFilterName);
+		TestBase.logTestStep("Total ICIX Task Filters to Delete # " + totalFilterToDelete);
+		sleep(2000);
+
+		int count = 1;
+		while (totalFilterToDelete > 0) {
+			DeleteICIXTaskFilter();
+			count++;
+			// DOM is updated now
+			// refresh();
+			RefreshPage();
+			waitForPageLoadToComplete();
+			sleep(7000);
+			switchToActiveFrame();
+			$(".taskin").waitUntil(visible, DEFAULT_WAIT);
+
+			// Update size
+			// Get Filter size
+			totalFilterToDelete = GetICIXTaskFilterSize(taskFilterName);
+			// Close Dropdown
+			Log.info("Total ICIXTask filter left to delete# " + totalFilterToDelete);
+
+		} // End for
+		TestBase.logTestStepPassOrFail(true, "All ICIX Task filter deleted with name >" + taskFilterName);
+	}// End function
+
+	public void OpenICIXTaskDropdown() {
+		Log.info("Open ICIX Task Dropdown");
+		// Check if dropdown is visible
+		if ($$(".slds-dropdown__item.ng-scope>a>span").filter(visible).size() < 1) {
+			$("#taskDropdown").waitUntil(visible, DEFAULT_WAIT).click();
+		}
+	}// End function
+
+	public boolean ClickOnICIXTaskFilterInDropDown() {
+		OpenICIXTaskDropdown();
+		boolean result = false;
+		Log.info("Open ICIX Task filter with name > " + this.strTaskFilterName);
+
+		if ($$(".slds-dropdown__item.ng-scope>a>span").filter(visible).filter(matchText(this.strTaskFilterName))
+				.size() > 0) {
+			$$(".slds-dropdown__item.ng-scope>a>span").filter(visible).filter(matchText(this.strTaskFilterName)).first()
+					.click();
+			Log.info("ICIX Task filter opened successfully with name >" + this.strTaskFilterName);
+			result = true;
+		} else {
+			Log.error("No filter found with name >" + this.strTaskFilterName);
+		}
+		return result;
+	}// End function
+
+	public void DeleteICIXTaskFilter() {
+		Log.info("Delete ICIX Task Filter with name > " + this.strTaskFilterName);
+		if (this.strTaskFilterName.isEmpty())
+			return;
+
+		try {
+			switchToActiveFrame();
+			boolean result = false;
+			if ($(".task-name").closest("header").find("h1").text().equalsIgnoreCase(this.strTaskFilterName)) {
+				result = true;
+			} else {
+				result = ClickOnICIXTaskFilterInDropDown();
+			}
+
+			if (result) {
+				$(By.partialLinkText("Delete List View")).waitUntil(visible, DEFAULT_WAIT).click();
+				sleep(2000);
+				Log.info("ICIX Task Filter deleted successfully with name > " + this.strTaskFilterName);
+			} else {
+				Log.error("ICIX Task Filter not deleted with name > " + this.strTaskFilterName);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}// End function
+
+	public int GetICIXTaskFilterSize(String taskFilterName) {
+		OpenICIXTaskDropdown();
+		int totalFilterCount = $$(".slds-dropdown__item.ng-scope>a>span").filter(visible)
+				.filter(matchText(taskFilterName)).size();
+		Log.info("Total ICIX Task filter are # " + totalFilterCount + " with name >" + taskFilterName);
+		return totalFilterCount;
+	}// End function
+
+	public void verifyNewRequestPage() throws Exception {
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(2000);
+		logTestStep("Click on new button");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		switchToActiveFrame();
+		assertExactTextPresent("Create New Request");
+		logTestStepPass("Create New Request page open successfully");
+	}
+
+	public void verifyLabelFormatAtResponderAndRequesterEnd() throws Exception {
+		logTestStep("Verify Label format");
+		switchToActiveFrame();
+		waitForPageLoadToComplete();
+		sleep(8000);
+		WebElement boldTextEle = $(com.codeborne.selenide.Selectors.withText("BoldItalicAndUnderlineText"));
+		if (boldTextEle.isDisplayed()) {
+			Boolean result = boldTextEle.getAttribute("class").contains("text-format-bold");
+			logTestStepPassOrFail(result, "Verify label as bold");
+			result = boldTextEle.getAttribute("class").contains("text-format-italic");
+			logTestStepPassOrFail(result, "label as italics");
+			result = boldTextEle.getAttribute("class").contains("text-format-underline");
+			logTestStepPassOrFail(result, "label as underlined");
+
+		} else {
+			logTestStepFail("Element is not present with bold,italic and underlined ");
+		}
+
+	}
+
+	public void openForm(RequestTestData objRTD) throws Exception {
+		logTestStep("Search request: " + objRTD.getRequestName());
+		sleep(2000);
+		GlobalSearch(AppLauncherItems.WORKFLOWS, objRTD.getRequestName());
+		RefreshPage(5000);
+		waitForPageLoadToComplete();
+		ClickLink(objRTD.getDocName());
+		$(By.xpath("//*[text()='Container Instance']")).waitUntil(appear, DEFAULT_WAIT).shouldBe(visible);
+		RefreshPage(5000);
+		waitForPageLoadToComplete();
+		ClickElement(RequestRepo.showmore, "Show More Link");
+		ClickElement(RequestRepo.OptionToOpenForm, "Open From Link");
+	}
+
+	public void fillAndSubmitForm(RequestTestData objRTD) throws Exception {
+		logTestStep("OpenFormAtResponderEnd");
+		openForm(objRTD);
+		logTestStep("Verify Label format");
+		verifyLabelFormatAtResponderAndRequesterEnd();
+		$x("//input[@type='text']").waitUntil(Condition.visible, DEFAULT_WAIT).setValue("Data");
+		sleep(2000);
+		ClickElement(RequestRepo.btnFormSubmit, "Submit Button");
+		sleep(8000);
+		waitForPageLoadToComplete();
+		logTestStep("Form submitted successfully");
+	}
+
+	// Send Request using pre field form
+	public void sendRequestWithPreFieldForm(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		sleep(3000);
+		Start.SwitchToSecondWindow();
+		sleep(8000);
+		$$x("//input[@type='text']").filter(Condition.visible).first().setValue("AutoPreFieldData");
+		$$x("//button[contains(text(),'Select Document')]").filter(Condition.visible).first().click();
+		TestBase.logTestStep("Browse a Document");
+		File f = new File(getDocumentTypeToUpload(".txt"));
+		if (f.isFile() && f.exists()) {
+			sleep(1000);
+			$("#file-input").uploadFile(f);
+			sleep(5000);
+			Log.info("File upload complete");
+
+		} else {
+			Log.error("Document file not found");
+			throw new Exception("Upload document file not found with type : " + ".txt");
+		}
+		$$("select").filter(Condition.visible).first().waitUntil(Condition.visible, DEFAULT_WAIT)
+				.selectOptionContainingText("Document");
+		sleep(3000);
+		$$x("//div[@class='slds-form-element slds-dropdown-trigger']").filter(Condition.visible).first().click();
+		$$x("//button[@title='Next Month']").filter(Condition.visible).first().click();
+		$$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").click();
+
+		SelenideElement modal = $$(".slds-modal").filter(visible).first();
+		modal.$$(".slds-modal__footer button").findBy(text("Save")).click();
+
+		ClickElement(By.xpath("//button[@text='Upload']"), "Button Upload");
+		sleep(5000);
+		$(".slds-form-element__control textarea").setValue("Auto");
+		$x("(//button[@text='Save'])[position()=1]").click();
+		$x("(//button[@text='Save'])[position()=1]").waitUntil(disabled, DEFAULT_WAIT);
+		Start.CloseExtraWindows();
+		switchToActiveFrame();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		sendReqPopup(objRTD.getTpOrPrdctName()); // New Added 02Sep
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	// Prefill N Panel
+	// Send Request using pre field form
+	public void sendRequestWithPreFileddNPanel(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		TestBase.logTestStep("Open attached document: " + objRTD.getDocName());
+		$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		sleep(4000);
+
+		if (WebDriverRunner.getWebDriver().getWindowHandles().size() == 2) {
+			logTestStepPass("Attached Document opened in other tab");
+		} else {
+			logInfoStepColored(COLOR.RED, "Attached Document not opened in other tab, Lets try again");
+			$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+			sleep(4000);
+		}
+
+		String defaultWin = GetDefaultWindow();
+		for (String win : WebDriverRunner.getWebDriver().getWindowHandles()) {
+			if (!win.equals(defaultWin)) {
+				WebDriverRunner.getWebDriver().switchTo().window(win);
+				break;
+			}
+		}
+
+		sleep(8000);
+		TestBase.logTestStep("Fill N Panel");
+
+		FormList form = new FormList();
+		form.WaitToLoadForm();
+		form.FillNpanel("0");
+		form.SavePrefilledForm();
+		form.ClosePrefilledForm();
+		CloseExtraWindows();
+		switchToActiveFrame();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+
+		sendReqPopup(objRTD.getTpOrPrdctName()); // New Added 02Sep
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+	}// End method
+
+	public void verifyIcixTaskPreFieldDataAndSubmitRequest(String requestName, String formName) throws Exception {
+		logTestStep("Verify Tasks For Pre field Request");
+		Workflow workflow = new Workflow(requestName);
+		workflow.OpenWorkflow().waitForWorkflowStatusIs(Workflow.WorkflowStatusType.SUBMITTED_BY_REQUESTOR, 5);
+
+		// We dont need to pass form name because at responder form filter is not work
+		IcixTasks.TakeActionOnTask(IcixTasks.Action.OPEN_FORM, requestName, "");
+		Start.SwitchToSecondWindow();
+		FormList objForm = new FormList();
+		objForm.WaitToLoadForm();
+		WebElement preFieldedData = $$x("//input[@type='text']").filter(Condition.visible).first();
+		String value = $(preFieldedData).waitUntil(enabled, DEFAULT_WAIT).val();
+		logTestStep("PreFielded data :" + value);
+		assertText(value, "AutoPreFieldData");
+
+		$$x("//input[@type='text']").filter(Condition.visible).last().setValue("AutoFillData");
+		sleep(1000);
+		WebElement uploadedDocEle = $(".upload-file-name.uploaded-file__title.ng-binding");
+		sleep(500);
+		boolean result = uploadedDocEle.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Uploaded doc at responder end");
+		logTestStep("Verify expiry date of uploaded document at responder end");
+		WebElement expData = $("[ng-if='doc.exipirationDate'] b");
+		sleep(2000);
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.MONTH, 1);
+		calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+		Date nextMonthLastDay = calendar.getTime();
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG);
+		String strDate = dateFormat.format(nextMonthLastDay);
+		logTestStep("ActualDate: " + expData.getText() + " Expected Date :Expires on " + strDate);
+		if (expData.getText().equalsIgnoreCase("Expires on " + strDate)) {
+
+			logTestStepPass("Expiry date of uploaded document is displayed correctly");
+		} else {
+			logTestStepFail("Expiry date of uploaded document is not displayed correctly");
+		}
+
+		$x("//button[@text='Submit']").click();
+		sleep(5000);
+		Start.CloseExtraWindows();
+		sleep(5000);
+		switchToActiveFrame();
+		IcixTasks.DeleteCurrentFilter();
+	}
+
+	public void verifyIcixTaskAndDataSubmittedByRespAtRequesterEnd(String requestName, String formName)
+			throws Exception {
+		logTestStep("Verify Tasks For Pre field Request at requester end");
+		Workflow workflow = new Workflow(requestName);
+		workflow.OpenWorkflow().waitForWorkflowStatusIs(Workflow.WorkflowStatusType.SUBMITTED_BY_RESPONDER, 5);
+
+		IcixTasks.TakeActionOnTask(IcixTasks.Action.OPEN_FORM, requestName, formName);
+		sleep(3000);
+		Start.SwitchToSecondWindow();
+		logTestStep("Verify Pre-filled data");
+
+		FormList objForm = new FormList();
+		objForm.WaitToLoadForm();
+		WebElement section = objForm.GetSection("Tab 0 Section 0");
+		logTestStep("Verify pre fielded data in text box one at requester end");
+		String actualText = objForm.GetReadonlyElementFromSection(section, "Question-0?").getText();
+		logTestStep("PreFielded data :" + actualText);
+		assertText(actualText, "AutoPreFieldData");
+
+		logTestStep("Verify data submitted by responder in text box two at requester end");
+		actualText = objForm.GetReadonlyElementFromSection(section, "Question-1?").getText();
+
+		logTestStep("Data submitted by responder :" + actualText);
+		assertText(actualText, "AutoFillData");
+		logTestStep("Verify uploaded doc at responder end");
+		sleep(1000);
+		WebElement uploadedDocEle = $(".upload-file-name.uploaded-file__title.ng-binding");
+		sleep(500);
+		boolean result = uploadedDocEle.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Uploaded doc at requester end");
+		logTestStep("Data verified at requester end");
+		Start.CloseExtraWindows();
+	} // End Method
+
+	public void selectFormInRequestPage(RequestTestData objRTD) throws Exception {
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+	} // End Method
+
+	public void verifyErrorMessage(RequestTestData objRTD) throws Exception {
+		selectFormInRequestPage(objRTD);
+		logTestStep("Selecting past date");
+		ClickElement(RequestRepo.txtDueDate, "Due Date");
+		$(byTitle("Previous Month")).waitUntil(visible, 5000).click();
+		$$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").click();
+		sleep(2000);
+		logTestStep("Verify Validation message display after selection past due date");
+		WebElement eleValidatioMessage = $x("//span[contains(@class,'ng-scope')][contains(text(),'The date must be')]");
+		Boolean result = eleValidatioMessage.isDisplayed();
+		logTestStepPassOrFail(result, "Validation message appear for past due date");
+
+	} // End method
+
+	public void VerifyAttachedFormCanBePreviewed(RequestTestData objRTD) throws Exception {
+		selectFormInRequestPage(objRTD);
+		logTestStep("Click on uploaded document linl");
+		$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		waitForPageLoadToComplete();
+		sleep(5000);
+		String cuWin = WebDriverRunner.getWebDriver().getWindowHandle();
+		String lastWin = "";
+		for (String s : WebDriverRunner.getWebDriver().getWindowHandles()) {
+			lastWin = s;
+		}
+		WebDriverRunner.getWebDriver().switchTo().window(lastWin);
+		assertText($x("//h1[contains(@class,'slds-page-header')]").getText(), objRTD.getDocName());
+		WebDriverRunner.getWebDriver().switchTo().window(cuWin);
+	}
+
+	public void getNumberOfRequests(String requestName) throws Exception {
+		logTestStep("Test Data: " + requestName);
+		GlobalSearchs(AppLauncherItems.WORKFLOWS, requestName);
+		sleep(5000);
+		WebElement noOfReq = $x("//div[contains(@class,'searchResultsSummary')]");
+		Boolean result = noOfReq.getText().contains("1 Result");
+		assertText(noOfReq.getText(), "1 Result");
+		logTestStepPassOrFail(result, "Verify correct request created");
+		sleep(1000);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+	}
+
+	public void verifyFormCategories(String tpName, String categoriesName[], String formNames[]) throws Exception {
+		logTestStep("Test Data:" + tpName + categoriesName + formNames);
+		logTestStep("Verify Form showing in correct categories");
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		switchToActiveFrame();
+		logTestStep("Select Trading Partner");
+		ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, tpName, "Trading Partner Field");
+		ClickElement(By.xpath("//span[@class='clickable ng-binding'][contains(text(),'" + tpName + "')]"),
+				"Select Trading Partner");
+		logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		sleep(2000);
+
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+		logTestStep("Click category");
+		System.out.println("categories :" + categoriesName.length);
+		int j = 0;
+		for (int i = 0; i < categoriesName.length; i++) {
+			ClickElement(By.linkText(categoriesName[i]), "Select Category"); // New Added
+			sleep(3000);
+			logTestStep("Select Form");
+			sleep(2000);
+			System.out.println("FormLength:" + formNames.length);
+			/*
+			 * WebElement availableForm =
+			 * $x("//span[contains(@class,'slds-m-left')][contains(text(),'" + formNames[i]
+			 * + "')]");
+			 */
+			SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+			SelenideElement availableForm = modalDialog.$$(".panel-content label.slds-checkbox")
+					.findBy(exactText(formNames[j]));
+			Boolean result = availableForm.getText().equalsIgnoreCase(formNames[j]);
+			logTestStep("Form : " + formNames[j] + "In Category : " + categoriesName[i]);
+			logTestStepPassOrFail(result, "Form Available In Categories");
+			j++;
+		}
+
+	}
+
+	public void verifyNewRequestPage(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify disabled fields");
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		logTestStep("Verify Select a Document/Forms is disable");
+		// WebElement selectDocEle =
+		// $x("//button[@disabled='disabled'][contains(text(),'Select a
+		// document/form')]");
+		WebElement selectDocEle = $("[ng-click='openFormList()']");
+		Boolean result = selectDocEle.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Document/Forms is disable");
+
+		logTestStep("Verify Due date is disable");
+		WebElement selectDueDateEle = $x("//input[@id='dueDate' and @ng-disabled='vm.disabled']");
+		result = selectDueDateEle.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Due date is disable");
+
+		logTestStep("Verify Comment field is disable");
+		WebElement selectCommentEle = $x("//textarea[@id='comments' and @disabled='disabled']");
+		result = selectCommentEle.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Comment field is disable");
+
+		logTestStep("Verify Send button is disable");
+		WebElement selectSendButtonEle = $x("//button[@text='Send' and @disabled='disabled']");
+		result = selectSendButtonEle.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Send button is disable");
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		String[] groups = { "2 Actor workflow" };
+		ReportUtil.startTest("QA-149",
+				"Verify in new request form that when user selects any of the document /form under All category Same form/document should selected in Corresponding category and vice-versa. (Covered under class - QA_135_Test)",
+				groups);
+
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+
+		logTestStep("Click category");
+		ClickElement(By.linkText(objRTD.getDocCategory()), "Select Category"); // New Added
+
+		logTestStep("Select Form");
+		sleep(2000);
+		sleep(2000);
+		SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+		SelenideElement elm = modalDialog.$$(".panel-content label.slds-checkbox")
+				.findBy(exactText(objRTD.getDocName())).waitUntil(visible, DEFAULT_WAIT);
+		elm.scrollIntoView(true).click();
+
+		WebElement selectedFormCountInFormCategory = $x(
+				"//a[@class='ng-binding bold' and contains(text(),'Form')]/following::span[1]");
+		result = selectedFormCountInFormCategory.getText().contains("1");
+		logTestStepPassOrFail(result, "Verify form selected in 'Form' Category");
+		WebElement selectedFormCountInAllCategory = $x(
+				"//a[@class='ng-binding' and contains(text(),'All')]/following::span[1]");
+		result = selectedFormCountInAllCategory.getText().contains("1");
+		logTestStepPassOrFail(result, "Verify same form selected in 'All' Category");
+
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		ReportUtil.startTest("QA-150",
+				"Verify that selected document count and total selected count should be same. (Covered under class - QA_135_Test)",
+				groups);
+		WebElement totalFormSelected = $$(".slds-modal__footer .slds-float--left").filter(visible).first();
+		result = totalFormSelected.getText().contains("1 form selected.");
+		logTestStepPassOrFail(result, "Verify total selected count ");
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		ReportUtil.startTest("QA-154",
+				"Verify that Related Request field is displayed once user select the document. (Covered under class - QA_135_Test)",
+				groups);
+		logTestStep("Attach Document: " + objRTD.getDocName());
+		ClickElement(RequestRepo.btnAttach, "Attach Button");
+		WebElement relatedRequestField = $(By.id("txtRelatedRequestMod"));
+		result = relatedRequestField.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Related Request field");
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		ReportUtil.startTest("QA-156",
+				"Verify that Related Request field should be enabled if user selects any document. (Covered under class - QA_135_Test)",
+				groups);
+		result = relatedRequestField.isEnabled();
+		logTestStepPassOrFail(result, "Verify Related Request field is enabled");
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		ReportUtil.startTest("QA-159",
+				"Verify In new request form the selected documents/forms should display under documents/forms by clicking the Skip button. (Covered under class - QA_135_Test)",
+				groups);
+		ClickElement(RequestRepo.btnSkipOnPopup, "Skip button on Popup");
+		// ClickElement(RequestRepo.btnSaveOnPopup, "Save button on Popup");
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+		logTestStepPass("Form Displayed");
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		ReportUtil.startTest("QA-228",
+				"Verify that user can remove the attached form while creating a new request (Covered under class - QA_135_Test)",
+				groups);
+		$x("//button[contains(@class,'ng-isolate-scope') and @assistive-text='Remove']").click();
+		result = $x("//ul[@class='disc']/li/a").isDisplayed();
+		logTestStepPassOrFail(!result, "Remove the attached form");
+		logScreenshot("RequestPage");
+		// This test will automatically ended after test method finished, so no need to
+		// end
+	} // End Method
+
+	public void sendRequestWithMultipleFormAndMultipleTP(RequestTestData objRTD, String tpName[], String forms[])
+			throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString() + tpName + forms);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+			logTestStep("Select Trading Partners");
+			for (int t = 0; t < tpName.length;) {
+				ClearAndSendKeys(RequestRepo.tradingPartnerDropDownForMultipleTP, tpName[t], "Trading Partner Field");
+				ClickElement(By.xpath("//span[@class='clickable ng-binding'][contains(text(),'" + tpName[t] + "')]"),
+						"Select Trading Partner");
+				logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0,
+						"Select Trading partner");
+				t++;
+			} // End for loop
+		}
+		sleep(2000);
+
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+
+		logTestStep("Click category");
+		ClickElement(By.linkText(objRTD.getDocCategory()), "Select Category"); // New Added
+
+		logTestStep("Select Form");
+		sleep(2000);
+
+		SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+
+		for (String form : forms) {
+			modalDialog.$$(".panel-content label.slds-checkbox").findBy(text(form)).waitUntil(visible, DEFAULT_WAIT)
+					.click();
+		} // end for
+
+		ClickElement(RequestRepo.btnAttach, "Attach Button");
+		ClickElement(RequestRepo.btnSaveOnPopup, "Save button on Popup");
+		sleep(3000);
+		for (String form : forms) {
+			TestBase.logTestStepPassOrFail($$("ul.disc li a").texts().contains(form), "Verify form attached: " + form);
+		}
+
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		Common.sendReqPopup(); // New Added 02Sep
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+	}
+
+	public void verifyRequestIsCreated(String requestName) throws Exception {
+		logTestStep("Test Data" + requestName);
+		GlobalSearchs(AppLauncherItems.REQUESTS, requestName);
+		// WebElement noOfReq = $x("//div[contains(@class,'searchResultsSummary')]");
+		WebElement noOfReq = $x("//div[contains(@class,'searchResultsSummary')]/div[1]");
+		Boolean result = noOfReq.getText().contains("2 Results");
+		assertText(noOfReq.getText(), "2 Results");
+		logTestStepPassOrFail(result, "Verify correct request created");
+
+	}
+
+	public void cancellingReq(String requestName) throws Exception {
+		logTestStep("Test Data" + requestName);
+
+		GlobalSearch(AppLauncherItems.WORKFLOWS, requestName);
+		logTestStep("Cancel Request");
+		sleep(3000);
+		if ($(RequestRepo.btnCancelRequestOnWorkflowPage).isDisplayed()) {
+			$(RequestRepo.btnCancelRequestOnWorkflowPage).click();
+		} else {
+			ClickElement(RequestRepo.showmore, "Show More Link");
+			ClickElement(RequestRepo.OptionToCancelRequest, "Open From Link");
+		} // End Else
+		sleep(2000);
+		logTestStep("Verify Workflow status");
+		waitForWorkflowStatusIs("Cancelled", 8);
+		assertText(RequestRepo.txtWorkflowStatus, "Cancelled");
+	}
+
+	public void verifyWorkingOfCancelButton(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		logTestStep("Verify Cancel button enable");
+		if ($(RequestRepo.btnCancelRequest).isEnabled()) {
+			logTestStepPass("Cancel button is enabled");
+			$(RequestRepo.btnCancelRequest).click();
+		} else {
+			logTestStepFail("Cancel button is not enable");
+		}
+		sleep(3000);
+		switchTo().defaultContent();
+		WebElement eleReqPageIcon = $x("//span[@class='uiImage']/img[@title='Requests']");
+		eleReqPageIcon.isDisplayed();
+		Boolean result = eleReqPageIcon.isDisplayed();
+		logTestStepPassOrFail(result, "Verify on Cancel redirected to Request list page");
+		if ($(By.linkText(objRTD.getRequestName())).isDisplayed()) {
+			logTestStepFail("New Request Created on Cancel");
+		} else {
+			logTestStepPass("New Request is not created on Cancel");
+		}
+
+	} // End Method
+
+	public void sendRequestWithProductNotHavingTpAssociated(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+			$(RequestRepo.tradingTPPartnerForProduct).waitUntil(Condition.visible, DEFAULT_WAIT)
+					.setValue(GlobalTestData.Responder_Admin.getName());
+			ClickElement(By.xpath("//span[@class='clickable ng-binding'][contains(text(),'"
+					+ GlobalTestData.Responder_Admin.getName() + "')]"), "Select Trading Partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		Common.sendReqPopup();
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	public void verifyUserIsOnICIXTasks() throws Exception {
+		switchToActiveFrame();
+		WebElement icixTaskPage = $x("//label[@class='task-name']");
+		Boolean result = icixTaskPage.isDisplayed();
+		logTestStepPassOrFail(result, "Redirected to ICIX Tasks Page");
+		switchTo().defaultContent();
+
+	}
+
+	public void selectTPNameInRequestPage(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		sleep(2000);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+
+	}
+
+	public void selectDocumentInRequestPage(RequestTestData objRTD) throws Exception {
+		selectDocument(objRTD);
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		// sendReqPopup(requestTestData.getTpOrPrdctName());
+		sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	public void removeSelectedTPInRequestPage(RequestTestData objRTD) throws Exception {
+		logTestStep("Remove selected TP");
+		$x("//*[@class='slds-pill__label stretch ng-binding']/following::*[1]")
+				.waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		sleep(3000);
+		logTestStep("Again select TP after removing");
+		ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+		// ClickElement(RequestRepo.TradingPartnerName, 120);
+		ClickElement(
+				By.xpath("//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+				"Select Trading Partner");
+		logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+
+	}
+
+	public void verifyOnlyOneRequestIsCreated(String requestName) throws Exception {
+		logTestStep("Test Data" + requestName);
+		GlobalSearchs(AppLauncherItems.REQUESTS, requestName);
+		WebElement noOfReq = $x("//div[contains(@class,'searchResultsSummary')]");
+		Boolean result = noOfReq.getText().contains("1 Result");
+		assertText(noOfReq.getText(), "1 Result");
+		logTestStepPassOrFail(result, "Verify correct request created");
+
+	}
+
+	public void verifyAbleToAddCommentUpTo8000Character() throws Exception {
+		WebElement getCommentText = $(RequestRepo.txtComments);
+		String commentText = getCommentText.getText();
+		// logTestStep("Added Comment :" +commentText );
+		int commentSize = commentText.length();
+		logTestStep("CommentLength: " + commentSize);
+		logTestStepPassOrFail(commentSize == 8000, "Allowed to add comment upto 8000 characters");
+	}
+
+	public void addRelatedRequest(RequestTestData objRTD, String relatedRequestName, String AddOrSkipRelatedRequest)
+			throws Exception {
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		// ClickElement(RequestRepo.lnkRequests, "Request Link");
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		// Select Product
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+		logTestStep("Click category");
+		ClickElement(By.linkText(objRTD.getDocCategory()), "Select Category"); // New Added
+
+		logTestStep("Select Form");
+		sleep(2000);
+		/*
+		 * ClickElement(By.xpath(
+		 * "//span[contains(@class,'slds-m-left')][contains(text(),'" +
+		 * objRTD.getDocName() + "')]/preceding::span[1]"), "Select Form Radio Button");
+		 * // New Added
+		 */
+		SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+		SelenideElement elm = modalDialog.$$(".panel-content label.slds-checkbox")
+				.findBy(exactText(objRTD.getDocName())).waitUntil(visible, DEFAULT_WAIT);
+		elm.scrollIntoView(true).click();
+
+		ClickElement(RequestRepo.btnAttach, "Attach Button");
+		logTestStep("Search and Add related request");
+		$(RequestRepo.relatedRequestSearchBox).setValue(relatedRequestName);
+		sleep(3000);
+		SelenideElement requestEl = $$(".clickable.ng-binding").filter(visible).first();
+		String requestName = requestEl.text();
+		requestEl.click();
+
+		sleep(2000);
+		if (AddOrSkipRelatedRequest.equalsIgnoreCase("Add")) {
+			logTestStep("This set will verify : QA-308-Verify that related request can be added");
+			ClickElement(RequestRepo.btnSaveOnPopup, "Save button on Popup");
+			logTestStepPassOrFail(
+					$$x("//label[contains(text(),'Related Request')]/following::span[1][@title='" + requestName + "']")
+							.filter(Condition.visible).first().isDisplayed(),
+					"Verify Related request added");
+			logTestStep("Related request added");
+			logTestStepPass("Test case QA-308");
+		} // End if
+
+		if (AddOrSkipRelatedRequest.equalsIgnoreCase("Skip")) {
+			ClickElement(RequestRepo.btnSkipOnPopup, "Skip button on Popup");
+			sleep(2000);
+			logTestStepPassOrFail(
+					!$$x("//label[contains(text(),'Related Request')]/following::span[1][@title='" + requestName + "']")
+							.filter(Condition.visible).first().isDisplayed(),
+					"Verify Related request not added");
+		} // End If
+		sleep(2000);
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		Common.sendReqPopup();
+		logTestStep("Request has been created successfully");
+		sleep(2000);
+
+	}
+
+	public void changeRequestType(RequestTestData objRTD) throws Exception {
+
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		logTestStep("Test data:" + objRTD.toString());
+		sleep(3000);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		sleep(3000);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		ClickElement(RequestRepo.RdoBtnTradingPartner, "Trading Partner Radio Button");
+		sleep(1000);
+		ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+		sleep(2000);
+		Boolean result = $(RequestRepo.verifyProductAdded).isDisplayed();
+		logTestStepPassOrFail(!result, "Verify Product Not Added");
+		logTestStepPass("Test Case Passed");
+		ReportUtil.endTest();
+
+		String[] groups = { "2 Actor workflow" };
+		ReportUtil.startTest("QA-1239",
+				"Request>Verify selected form/document disappear when user change the selection from TP to product or vice-versa (Covered under class - QA_2481)",
+				groups);
+
+		selectTPOrProductNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		logTestStep("Remove Selected product and select request type as Trading partner");
+		objRTD.setRequestType("Trading partner");
+		objRTD.setTpOrPrdctName(GlobalTestData.Responder_Admin.getName());
+		ClickElement(RequestRepo.RdoBtnTradingPartner, "Trading Partner Radio Button");
+		selectTPOrProductNameInRequestPage(objRTD);
+		result = $x("//ul[@class='disc']/li/a").isDisplayed();
+		logTestStepPassOrFail(!result, "Verify Document/Form Not Added");
+
+	}
+
+	public void selectTPOrProductNameInRequestPage(RequestTestData objRTD) throws Exception {
+		if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+			ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+			logTestStep("Entering product Name");
+			ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+			Thread.sleep(500);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(1000);
+			// logTestStepPassOrFail($$(".slds-pill__label.ng-binding.has-icon").size() > 0,
+			// "Select Trading partner");
+			logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+		}
+		// Select Trading partner
+		else {
+
+			logTestStep("Select Trading Partner");
+			ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(), "Trading Partner Field");
+			// ClickElement(RequestRepo.TradingPartnerName, 120);
+			ClickElement(By.xpath(
+					"//span[@class='clickable ng-binding'][contains(text(),'" + objRTD.getTpOrPrdctName() + "')]"),
+					"Select Trading Partner");
+			logTestStepPassOrFail($$(".slds-pill.ng-scope.slds-pill--editable").size() > 0, "Select Trading partner");
+		}
+		sleep(2000);
+	}
+
+	public void selectDocument(RequestTestData objRTD) throws Exception {
+		attachForm(objRTD.getDocCategory(), objRTD.getDocName());
+		assertText($x("//ul[@class='disc']/li/a").getText(), objRTD.getDocName());
+
+	}
+
+	public void verifyYesButtonGetEnable(RequestTestData objRTD, String forms[]) throws Exception {
+		selectTPNameInRequestPage(objRTD);
+		selectMultipleFormInRequestPage(objRTD, forms);
+		sleep(3000);
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		verifyYesButtonEnable(objRTD);
+		logTestStep("Request has been created successfully");
+	}
+
+	public void verifyYesButtonEnable(RequestTestData objRTD) throws InterruptedException {
+		logTestStep("Uncheck first checkbox on conformation box");
+		WebElement openedModalElm = GetOpendModalDialog();
+		switchToActiveFrame();
+		$(openedModalElm).$$(".slds-checkbox input").forEach(elm -> {
+			if (elm.isSelected()) {
+				elm.closest("label").click();
+			}
+
+		});
+		$(openedModalElm).$$(".slds-checkbox").filter(visible).first().click();
+
+		// if ($(RequestRepo.buttonYes).isEnabled()) {
+		if ($$x("//*[text()='Yes']/parent::*[1]").filter(visible).first().isEnabled()) {
+
+			logTestStepPass("Verify Yes Button Enable");
+			$($$x("//*[text()='Yes']/parent::*[1]").filter(visible).first()).click();
+		} else {
+			logTestStepFail("Verify Yes Button Enable");
+		}
+		sleep(4000);
+	}
+
+	public void selectMultipleFormInRequestPage(RequestTestData objRTD, String forms[]) throws Exception {
+		sleep(2000);
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+		logTestStep("Click category");
+		ClickElement(By.linkText(objRTD.getDocCategory()), "Select Category"); // New Added
+
+		logTestStep("Select Form");
+		sleep(2000);
+
+		for (int i = 0; i < forms.length;) {
+			/*
+			 * ClickElement(By.xpath(
+			 * "//span[contains(@class,'slds-m-left')][contains(text(),'" + forms[i] +
+			 * "')]/preceding::span[1]"), "Select Form Radio Button"); // New Added
+			 */
+			SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+			SelenideElement elm = modalDialog.$$(".panel-content label.slds-checkbox").findBy(exactText(forms[i]))
+					.waitUntil(visible, DEFAULT_WAIT);
+			elm.scrollIntoView(true).click();
+			i++;
+		}
+		ClickElement(RequestRepo.btnAttach, "Attach Button");
+		ClickElement(RequestRepo.btnSaveOnPopup, "Save button on Popup");
+		for (int v = 0; v < forms.length;) {
+			for (int liSize = 1; liSize <= forms.length;) {
+
+				assertText($x("//ul[@class='disc']/li[" + liSize + "]/a").getText(), forms[v]);
+				v++;
+				liSize++;
+			} // End inner loop
+
+		} // End outer loop
+	}
+
+	public void verifyWorkflowStatus(String workflowStatus, String requestName) throws Exception {
+		logTestStep("Verify workflow status for request: " + requestName);
+		sleep(6000);
+		Common.GlobalSearch(AppLauncherItems.WORKFLOWS, requestName);
+		sleep(2000);
+		RefreshPage();
+		sleep(3000);
+		Log.info("Wait for request to update");
+		logTestStepPassOrFail(waitForWorkflowStatusIs(workflowStatus, 10),
+				"Verify workflow status is: " + workflowStatus);
+	}
+
+	// This method will open request from ICIX Tasks
+
+	public void openRequestFromICIXTask(RequestTestData objRTD) throws Exception {
+		logTestStep("Test data " + objRTD);
+		verifyRequestIsDisplayedInICIXTask(objRTD.getRequestName());
+		sleep(4000);
+		logTestStep("Click on Open Form button");
+		$(By.xpath("//div[@role='group']/a[contains(text(),'Open Form')]")).click();
+		sleep(2000);
+	}
+
+	// This method will upload document before sending request
+	public void sendRequestWithPreDocUploadForm(RequestTestData objRTD) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + objRTD.toString());
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		// Common.SwitchToFrame();
+		switchToActiveFrame();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		sleep(5000);
+		if (WebDriverRunner.getWebDriver().getWindowHandles().size() == 2) {
+			logTestStepPass("Form link clicked and another tab opened");
+		} else {
+			logInfoStepColored(COLOR.RED, "Form link not clicked try again");
+			$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+			sleep(5000);
+		}
+
+		String defaultWin = GetDefaultWindow();
+		String lastWin = "";
+		for (String win : WebDriverRunner.getWebDriver().getWindowHandles()) {
+			if (!win.equalsIgnoreCase(defaultWin)) {
+				WebDriverRunner.getWebDriver().switchTo().window(win);
+			}
+		}
+
+		sleep(6000);
+		uploadDocumentInRequestForm();
+		$x("(//button[@text='Save'])[position()=1]").click();
+		sleep(2000);
+		WebDriverRunner.getWebDriver().close();
+		WebDriverRunner.getWebDriver().switchTo().window(defaultWin);
+		switchToActiveFrame();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sleep(1000);
+		sendReqPopup(objRTD.getTpOrPrdctName()); // New Added 02Sep
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(2000);
+
+	}
+
+	public void uploadDocumentInRequestForm() throws Exception {
+		logTestStep("Upload document");
+		$$x("//button[contains(text(),'Select Document')]").filter(Condition.visible).first().click();
+		TestBase.logTestStep("Browse a Document");
+		String documentName = "";
+		File f = new File(getDocumentTypeToUpload(".txt"));
+		if (f.isFile() && f.exists()) {
+			documentName = f.getName();
+			sleep(1000);
+			$("#file-input").uploadFile(f);
+			// $("#fileForm").$("input[type='file']").uploadFile(f);
+			sleep(5000);
+			Log.info("File upload complete");
+
+		} else {
+			Log.error("Document file not found");
+			throw new Exception("Upload document file not found with type : " + ".txt");
+		}
+		$$("select").filter(Condition.visible).first().waitUntil(Condition.visible, DEFAULT_WAIT)
+				.selectOptionContainingText("Document");
+		sleep(3000);
+		// Select Date
+		/*
+		 * $x("//div[@class='slds-form-element slds-dropdown-trigger']").waitUntil(
+		 * Condition.visible, DEFAULT_WAIT).click();
+		 * $(byTitle("Next Month")).waitUntil(visible, 5000).click();
+		 * $$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").
+		 * click();
+		 */
+		$$x("//div[@class='slds-form-element slds-dropdown-trigger']").filter(Condition.visible).first().click();
+		$$x("//button[@title='Next Month']").filter(Condition.visible).first().click();
+		$$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").click();
+
+		// $x("(//button[@text='Save'])[position()=3]").click();
+		SelenideElement modal = $$(".slds-modal").filter(visible).first();
+		modal.$$(".slds-modal__footer button").findBy(text("Save")).click();
+		ClickElement(By.xpath("//button[@text='Upload']"), "Button Upload");
+		sleep(7000);
+		WebElement eleUploadedFile =
+				// $x("//li[@class='slds-list__item ng-scope']/a[@class='upload-file-name
+				// ng-binding']");
+				$x("//a[@class='upload-file-name uploaded-file__title ng-binding']");
+
+		Boolean result = eleUploadedFile.isDisplayed();
+		logTestStepPassOrFail(result, "Verify document uploaded");
+		logTestStep("Document uploaded");
+	}
+
+	public String GetFirstRequestNameFromRequestListPage() throws InterruptedException {
+		switchTo().defaultContent();
+		$(".slds-spinner_container").waitUntil(hidden, DEFAULT_WAIT);
+		$("img.icon[title='Requests']").waitUntil(visible, DEFAULT_WAIT);
+		sleep(10000);
+		SelenideElement requestsTable = $$("table.uiVirtualDataTable").filter(visible).first();
+
+		String requestName = requestsTable.$("tbody th[scope='row']", 0).getText();
+		logScreenshot(requestName);
+		TestBase.logTestStep("Request name is :" + requestName);
+		return requestName;
+	}
+
+	/**
+	 * <h1>This method is used to upload document in table style</h1>
+	 *
+	 * @throws Exception
+	 */
+
+	public void uploadDocumentInTableStyle() throws Exception {
+		String documentName = "";
+		File f = new File(getDocumentTypeToUpload(".txt"));
+		if (f.isFile() && f.exists()) {
+			documentName = f.getName();
+			sleep(1000);
+			// $("#file-input").uploadFile(f);
+			$("[id$='single-file-input']").uploadFile(f);
+
+			// $("#fileForm").$("input[type='file']").uploadFile(f);
+			sleep(5000);
+			Log.info("File upload complete");
+
+		} else {
+			Log.error("Document file not found");
+			throw new Exception("Upload document file not found with type : " + ".txt");
+		}
+		$$("select").filter(Condition.visible).first().waitUntil(Condition.visible, DEFAULT_WAIT)
+				.selectOptionContainingText("Document");
+		sleep(3000);
+		// Select Date
+		/*
+		 * $x("//div[@class='slds-form-element slds-dropdown-trigger']").waitUntil(
+		 * Condition.visible, DEFAULT_WAIT).click();
+		 * $(byTitle("Next Month")).waitUntil(visible, 5000).click();
+		 * $$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").
+		 * click();
+		 */
+
+		$$x("//div[@class='slds-form-element slds-dropdown-trigger']").filter(Condition.visible).first().click();
+		$$x("//button[@title='Next Month']").filter(Condition.visible).first().click();
+		$$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").click();
+
+		// $x("(//button[@text='Save'])[position()=3]").click();
+		SelenideElement modal = $$(".slds-modal").filter(visible).first();
+		modal.$$(".slds-modal__footer button").findBy(text("Save")).click();
+		// ClickElement(By.xpath("//button[@text='Upload']"), "Button Upload");
+		sleep(5000);
+		Boolean result = $(By.partialLinkText(documentName)).isDisplayed();
+		logTestStepPassOrFail(result, "Verify document uploaded");
+
+	}
+
+	/**
+	 * <h1>This method will verify user can't submit form without fielded mandatory
+	 * fields</h1>
+	 *
+	 * @throws Exception
+	 */
+	public void verifyFormCanNotSubmittedWithoutFilledMandatoryFields() throws Exception {
+		logTestStep("Verify that Form can not be submitted when all the mandatory fields are not filled.");
+		logTestStep("Enter data in text first text field");
+		$$x("//input[@type='text']").filter(visible).first().setValue("AutoTestData");
+		$x("//button[@text='Submit']").click();
+		logTestStep("Clicked on submit button");
+		logTestStep("Verify validation message");
+		WebElement eleValidationMsg = $x("//span[text()='Value is required']");
+		Boolean result = eleValidationMsg.isDisplayed();
+		logTestStepPassOrFail(result, "Verify Form can not be submitted when all the mandatory fields are not filled");
+
+	}
+
+	public void verifyFieldInsideTabHighlightedWhenMisstheMandatoryField() throws Exception {
+		logTestStep("Verify that on submitting the form, the field inside the tab is also highlighted where"
+				+ "user miss the mandatory field");
+		WebElement eleTextLabel = $$x("(//span[@ng-class='$root.getFormatClasses(to)'])[position()=2]").filter(visible)
+				.last();
+		WebElement eleUploadLabel = $$x("//span[@ng-class='$root.getFormatClasses(to)']").filter(visible).last();
+
+		WebElement eleVerifyTextFieldValidationMsg = $("[id$='error-summary']").waitUntil(visible, DEFAULT_WAIT);
+
+		Boolean result = eleVerifyTextFieldValidationMsg.getText().contains(eleTextLabel.getText());
+		logTestStepPassOrFail(result,
+				"Verify field(text) inside the tab is also highlighted where user miss the mandatory field ");
+
+		result = eleVerifyTextFieldValidationMsg.getText().contains(eleUploadLabel.getText());
+		logTestStepPassOrFail(result,
+				"Verify field(upload) inside the tab is also highlighted where user miss the mandatory field ");
+	}
+
+	public void OpenRequestDetail(String requestName) throws Exception {
+		Common.GlobalSearch(AppLauncherItems.WORKFLOWS, requestName);
+		$$("a.tabHeader[title='Details']").filter(visible).first().click();
+	}
+
+	public void VerifyRequestDetails() throws Exception {
+		SelenideElement requestDetailForm = $$("#brandBand_1 .region-main section .slds-form").filter(visible).first()
+				.waitUntil(visible, DEFAULT_WAIT);
+		List<Boolean> results = new ArrayList<>();
+		WebElement formElemnet = GetElementFromDetail(requestDetailForm, "Request Name");
+
+		boolean result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'Request Name' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+
+		formElemnet = GetElementFromDetail(requestDetailForm, "Status");
+		result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'Status' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+
+		formElemnet = GetElementFromDetail(requestDetailForm, "Request Type");
+		result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'Request Type' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+
+		formElemnet = GetElementFromDetail(requestDetailForm, "Due Date");
+		result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'Due Date' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+
+		formElemnet = GetElementFromDetail(requestDetailForm, "Requestor");
+		result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'Requestor' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+
+		formElemnet = GetElementFromDetail(requestDetailForm, "ICIX Product");
+		result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'ICIX Product' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+
+		formElemnet = GetElementFromDetail(requestDetailForm, "Form Name");
+		result = formElemnet.isDisplayed();
+		logStepWithSoftAssert(result, "Verify 'Form Name' field is visible");
+		logTestStep("Value = " + formElemnet.getText());
+		results.add(result);
+		logScreenshot("RequestDetail");
+		logTestStepPassOrFail(isAllTrueInList(results), "Verify Request Details page");
+
+	}// End method
+
+	public String GetFormNameFromRequestDetails() throws Exception {
+		SelenideElement requestDetailForm = $$("#brandBand_1 .region-main section .slds-form").filter(visible).first()
+				.waitUntil(visible, DEFAULT_WAIT);
+		WebElement formElemnet = GetElementFromDetail(requestDetailForm, "Form Name");
+		return formElemnet.getText();
+	}// End method
+
+	public WebElement GetElementFromDetail(WebElement detailForm, String label) {
+		/*
+		 * SelenideElement elm =
+		 * $(detailForm).$$(".test-id__field-label.slds-form-element__label")
+		 * .filter(visible).findBy(text(label))
+		 * .closest("div[contains(@class,'slds-form-element')]")
+		 * .$(".slds-form-element__control .test-id__field-value").waitUntil(visible,
+		 * DEFAULT_WAIT); return elm;
+		 */
+		SelenideElement elm = $(detailForm).$$(".test-id__field-label").filter(visible).findBy(text(label))
+				.closest("div[contains(@class,'slds-form-element')]").parent().$(".test-id__field-value")
+				.waitUntil(visible, DEFAULT_WAIT);
+		return elm;
+	}
+
+	public void VerifyMultipleRequestLinksWorkingCorrectly(RequestTestData objRTD, String[] forms) throws Exception {
+		// Common.GlobalSearchs("Requests",requestTestData.getRequestName());
+		switchTo().defaultContent();
+		sleep(5000);
+		boolean result = $(".slds-page-header--object-home .slds-breadcrumb__item")
+				.waitUntil(text("Requests"), DEFAULT_WAIT).is(visible);
+
+		logTestStepPassOrFail(result, "Verify request listing page opened");
+
+		$("table.uiVirtualDataTable").waitUntil(visible, DEFAULT_WAIT);
+		TestBase.logTestStep("Verify link for multiple");
+		ElementsCollection requests = $$("table.uiVirtualDataTable").filter(Condition.visible).first().$$("tbody th a")
+				.filter(text(objRTD.getRequestName()));
+
+		logTestStep("Total multi request created: " + requests.size());
+
+		logTestStep("Open all request's link and verify");
+		String presControlAndEnter = Keys.chord(Keys.CONTROL, Keys.RETURN);
+		if (Common.GetOSName().toLowerCase().contains("mac")) {
+			presControlAndEnter = Keys.chord(Keys.COMMAND, Keys.RETURN);
+		}
+		for (SelenideElement request : requests) {
+			Common.HighlightElement(request);
+			sleep(1000);
+			actions().moveToElement(request).build().perform();
+			request.sendKeys(presControlAndEnter);
+			sleep(2000);
+			refresh();
+		}
+
+		Request objReq = new Request();
+		Set<String> actualForms = new HashSet<>();
+		String defaultWin = Start.GetDefaultWindow();
+		for (String win : WebDriverRunner.getWebDriver().getWindowHandles()) {
+			if (!win.equals(defaultWin)) {
+				WebDriverRunner.getWebDriver().switchTo().window(win);
+				String formInRequestDetail = objReq.GetFormNameFromRequestDetails();
+				actualForms.add(formInRequestDetail);
+			}
+		} // end for
+		Set<String> expectedForms = new HashSet<>();
+		expectedForms.addAll(Arrays.asList(forms));
+
+		logTestStep("Expected Forms: " + expectedForms.toString());
+		logTestStep("Actual Forms: " + actualForms.toString());
+
+		logTestStepPassOrFail(expectedForms.equals(actualForms),
+				"Verify multiple requests has unique forms and all links are working");
+	}
+
+	public void VerifyActionsOnWorkflow() throws Exception {
+		logTestStep("Verify actions on workflow page");
+		SelenideElement headerElm = $("header.forceHighlightsPanel[role='banner']").waitUntil(visible, DEFAULT_WAIT);
+		headerElm.$("li.oneActionsDropDown").click();
+
+		logTestStep("Verify after clicking APPROVE user remain at same workflow page");
+		$(By.linkText("Approve")).click();
+		sleep(4000);
+		switchToActiveFrame();
+
+		boolean result = $("#errorDesc").$(By.xpath("following-sibling::table")).$("tbody tr", 0).text()
+				.contains("Insufficient Privileges");
+		logTestStepPassOrFail(result, "Verify after clicking APPROVE user get message 'Insufficient Privileges'");
+		logScreenshot("Approve");
+
+		WebDriverRunner.getWebDriver().navigate().back();
+
+		switchTo().defaultContent();
+		headerElm = $("header.forceHighlightsPanel[role='banner']").waitUntil(visible, DEFAULT_WAIT);
+		headerElm.$("li.oneActionsDropDown").click();
+
+		logTestStep("Verify after clicking REJECT user remain at same workflow page");
+		$(By.linkText("Reject")).click();
+		sleep(4000);
+		switchToActiveFrame();
+
+		result = $("#errorDesc").$(By.xpath("following-sibling::table")).$("tbody tr", 0).text()
+				.contains("Insufficient Privileges");
+		logTestStepPassOrFail(result, "Verify after clicking REJECT user get message 'Insufficient Privileges'");
+		logScreenshot("Reject");
+	}
+
+	public void verifyUserNotAbleToAddMultiplePG(String PGNames[]) throws Exception {
+		logTestStep("Create a new request");
+		logTestStep("Test data:" + requestTestData.toString() + PGNames);
+		openAppLauncher();
+		ClickAppLauncherItem(AppLauncherItems.REQUESTS);
+
+		logTestStep("Click new");
+		ClickElement(RequestRepo.btnNewRequest, "New Request Button");
+		switchToActiveFrame();
+		// Select Product
+		ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+		for (int t = 0; t < PGNames.length; t++) {
+			logTestStep("Product Name to select:" + PGNames[t]);
+			logTestStep("Entering product Name");
+			WebElement eleSelectProduct = $$x("//span[contains(text(),'Product')]/following::input[1]").filter(visible)
+					.first();
+			$(eleSelectProduct).clear();
+			sleep(1000);
+			$(eleSelectProduct).setValue(PGNames[t]);
+			Thread.sleep(2000);
+			ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+			Thread.sleep(500);
+		} // End for
+		WebElement getValidationMessage = $x("//h2[@ng-bind-html='vm.state.message']");
+		System.out.println(getValidationMessage.getText());
+		Boolean result = getValidationMessage.getText().contains(
+				"Only one Product Group can be selected at a time and no Product(s) can be selected when a Product Group is selected");
+		logTestStepPassOrFail(result, "Verify TP can not select multiple Product groups for a request");
+
+	} // End Method
+
+	public void uploadDocInTableStyle() throws Exception {
+		String documentName = "";
+		File f = new File(getDocumentTypeToUpload(".txt"));
+		if (f.isFile() && f.exists()) {
+			documentName = f.getName();
+			sleep(1000);
+			// $("#file-input").uploadFile(f);
+			logTestStep("Click on upload button");
+			$("span.slds-button.slds-button--neutral").click();
+			$("[id$='single-file-input']").uploadFile(f);
+
+			// $("#fileForm").$("input[type='file']").uploadFile(f);
+			sleep(5000);
+			Log.info("File upload complete");
+
+		} else {
+			Log.error("Document file not found");
+			throw new Exception("Upload document file not found with type : " + ".txt");
+		}
+		$$("select").filter(Condition.visible).first().waitUntil(Condition.visible, DEFAULT_WAIT)
+				.selectOptionContainingText("Document");
+		sleep(3000);
+		// Select Date
+		/*
+		 * $x("//div[@class='slds-form-element slds-dropdown-trigger']").waitUntil(
+		 * Condition.visible, DEFAULT_WAIT).click();
+		 * $(byTitle("Next Month")).waitUntil(visible, 5000).click();
+		 * $$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").
+		 * click();
+		 */
+
+		$$x("//div[@class='slds-form-element slds-dropdown-trigger']").filter(Condition.visible).first().click();
+		$$x("//button[@title='Next Month']").filter(Condition.visible).first().click();
+		$$(By.xpath("//*[contains(@ng-repeat,'day in week')]")).last().find("span").click();
+
+		// $x("(//button[@text='Save'])[position()=3]").click();
+		SelenideElement modal = $$(".slds-modal").filter(visible).first();
+		modal.$$(".slds-modal__footer button").findBy(text("Save")).click();
+		// ClickElement(By.xpath("//button[@text='Upload']"), "Button Upload");
+		sleep(5000);
+		Boolean result = $(By.partialLinkText(documentName)).isDisplayed();
+		logTestStepPassOrFail(result, "Verify document uploaded");
+
+	}
+
+	public void verifyAddedCommentDoesNotDeleted(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify Comment added in comment box doesn't change/Delete if TP deleted after adding comment");
+		$x("//*[@class='slds-pill__label stretch ng-binding']/following::*[1]")
+				.waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		objRTD.setTpOrPrdctName(GlobalTestData.Responder_Admin.getName());
+		removeSelectedTPInRequestPage(objRTD);
+		logTestStepPassOrFail(objRTD.getComment().trim().equals($(RequestRepo.txtCommentsToSendRequest).val().trim()),
+				"Verify comment remain same after adding another trading partner for new request");
+	}
+
+	public void clickOnNewRequestButtonFromIcixProductPage() throws Exception {
+		logTestStep("Click On NewRequest Button From Icix Product Page");
+		logTestStep("Click on related product");
+		sleep(5000);
+		$$(ProductRepo.related).filter(Condition.visible).first().click();
+		sleep(3000);
+		logTestStep("Get request name");
+		$(ProductRepo.btnNew_Requests).waitUntil(visible, DEFAULT_WAIT).click();
+		switchToActiveFrame();
+		sleep(2000);
+	}
+
+	public void verifyDefaultRequestNameForProductReq(ProductTestData objPTD) throws Exception {
+		clickOnNewRequestButtonFromIcixProductPage();
+		logTestStep(
+				"Verify the Product Name is truncated in the Request Name when sending new request from ICIX Product");
+		this.reqName = $(RequestRepo.txtRequestName).getAttribute("value");
+		logTestStepPassOrFail(reqName.contains(objPTD.getProductName()),
+				"Verify Product Name is truncated in the Request Name");
+
+	}
+
+	public void sendRequestFromICIXProductPageAfterRemovingRequestName(RequestTestData objRTD) throws Exception {
+		logTestStep("verify a user can send a request from ICIX Product Page and can remove request name");
+		logTestStep("Clear request name");
+		$(RequestRepo.txtRequestName).clear();
+		sleep(2000);
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(this.reqName);
+
+		sleep(3000);
+		searchRequest(AppLauncherItems.REQUESTS, this.reqName);
+		sleep(5000);
+
+	}
+
+	public void sendRequestFromICIXProductPageAfterChangeTheRequestName(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify a user can send a request from ICIX Product Page and can change request name");
+		logTestStep("Test Data" + objRTD);
+		clickOnNewRequestButtonFromIcixProductPage();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		if (!objRTD.getRequestName().equalsIgnoreCase(" "))
+			assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+		sleep(2000);
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(3000);
+		searchRequest(AppLauncherItems.REQUESTS, objRTD.getRequestName());
+		sleep(5000);
+
+	}
+
+	public void sendRequestFromICIXProductPageAndAddAnotherTP(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify a user can send a request from ICIX Product Page and ADD another TP");
+		logTestStep("Test Data" + objRTD);
+		clickOnNewRequestButtonFromIcixProductPage();
+		ClearAndSendKeys(RequestRepo.txtRequestName, objRTD.getRequestName(), "Request Name Filed");
+		if (!objRTD.getRequestName().equalsIgnoreCase(" "))
+			assertText($(RequestRepo.txtRequestName).getValue(), objRTD.getRequestName());
+
+		logTestStep("select another tp");
+		$x("//input[@placeholder='1 option selected']").waitUntil(visible, DEFAULT_WAIT)
+				.setValue(GlobalTestData.Lab_Admin.getName());
+		Thread.sleep(2000);
+		ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+		Thread.sleep(1000);
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		logTestStep("Request has been created successfully");
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(3000);
+
+		verifyCorrectNumberOfRequestCreated(objRTD.getRequestName(), "2");
+		sleep(5000);
+
+	}
+
+	public void verifyCorrectNumberOfRequestCreated(String requestName, String totalNumberOfRequestToBeCreated)
+			throws Exception {
+		logTestStep("Verify correct number of request is created");
+		GlobalSearchs(AppLauncherItems.REQUESTS, requestName);
+		Selenide.sleep(1000);
+		String getTotalNoOfCreatedRequest = $("div.searchResultsSummary").getText();
+		logTestStep("Total request created : " + getTotalNoOfCreatedRequest);
+		logTestStepPassOrFail(getTotalNoOfCreatedRequest.contains("" + totalNumberOfRequestToBeCreated + " Result"),
+				"Verify Correct number of request created");
+	}
+
+	public void sendRequestAfterRemovingAddedTP(RequestTestData objRTD, ProductTestData objPTD) throws Exception {
+		logTestStep("Verify a user can send a request from ICIX Product Page and REPLACE the TP");
+		logTestStep("Test Data : " + objRTD);
+		switchTo().defaultContent();
+		clickOnNewRequestButtonFromIcixProductPage();
+		switchToActiveFrame();
+		logTestStep(
+				"Verify the Product Name is truncated in the Request Name when sending new request from ICIX Product");
+		this.reqName = $(RequestRepo.txtRequestName).getAttribute("value");
+		logTestStepPassOrFail(reqName.contains(objPTD.getProductName()),
+				"Verify Product Name is truncated in the Request Name");
+		logTestStep("Remove added tp");
+		$$x("//span[contains(@class,'slds-pill--editable')]/*[name()='svg']").filter(visible).last().click();
+		sleep(2000);
+		logTestStep("Select another tp");
+		$x("//input[@placeholder='Select a partner']").setValue(objRTD.getTpOrPrdctName());
+		sleep(1000);
+		ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+		sleep(1000);
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		logTestStep("Send Request");
+		ClearAndSendKeys(RequestRepo.txtCommentsToSendRequest, objRTD.getComment(), "Send Request Comment field");
+		sleep(3000);
+		ClickElement(RequestRepo.btnSendRequest, "Send Button");
+		sendReqPopup(GlobalTestData.Responder_Admin.getName());
+		logTestStep("Request has been created successfully");
+		objRTD.setRequestName(this.reqName);
+		GlobalTestData.RequestsToDelete.add(objRTD.getRequestName());
+		sleep(3000);
+		verifyCorrectNumberOfRequestCreated(objRTD.getRequestName(), "1");
+		sleep(1000);
+
+	}
+
+	public void verifySaveAsDraftButtonPresent(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify that Save as Draft button is present on the New Request page");
+		selectTPNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		sleep(1000);
+		logTestStep("Verify draft button");
+		SelenideElement eleDraftBtn = $x("//*[text()='Save as Draft']/parent::*[1]");
+		logTestStepPassOrFail(eleDraftBtn.isDisplayed(), "Verify Save as Draft button Display");
+		logTestStepPassOrFail(eleDraftBtn.isEnabled(), "Verify Save as Draft button Enable");
+
+	}
+
+	public void verifyStatusAsDraft(RequestTestData objRTD) throws Exception {
+		sleep(1000);
+		$(By.linkText(objRTD.getDocName())).click();
+		sleep(3000);
+		String currentWin = WebDriverRunner.getWebDriver().getWindowHandle();
+		for (String win : WebDriverRunner.getWebDriver().getWindowHandles()) {
+			if (!win.equalsIgnoreCase(currentWin)) {
+				WebDriverRunner.getWebDriver().switchTo().window(win);
+				break;
+			}
+		}
+		$$("input").filter(visible).first().setValue("Auto");
+
+		logTestStep("Click on save button");
+		$$x("//*[text()='Save']/parent::*[1]").filter(visible).first().click();
+		sleep(5000);
+		$$x("//*[text()='Close']/parent::*[1]").filter(visible).first().click();
+		WebDriverRunner.getWebDriver().switchTo().window(currentWin);
+		sleep(3000);
+		// $x("//a[@title='Document Library']").isDisplayed();
+		// $x("//a[@title='Document Library']").isDisplayed();
+		logTestStep("Verify Status");
+		searchRequest(AppLauncherItems.REQUESTS, objRTD.getRequestName());
+		assertText(RequestRepo.txtRequestStatus, "Draft");
+
+	}
+
+	public void saveReqAsDraft(RequestTestData objRTD) throws Exception {
+
+		selectTPNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		sleep(1000);
+		sleep(1000);
+		$(By.linkText(objRTD.getDocName())).click();
+		sleep(3000);
+		String currentWin = WebDriverRunner.getWebDriver().getWindowHandle();
+		for (String win : WebDriverRunner.getWebDriver().getWindowHandles()) {
+			if (!win.equalsIgnoreCase(currentWin)) {
+				WebDriverRunner.getWebDriver().switchTo().window(win);
+				break;
+			}
+		}
+		$$("input").filter(visible).first().setValue("Auto");
+		uploadDocumentInRequestForm();
+		logTestStep("Click on save button");
+		$$x("//*[text()='Save']/parent::*[1]").filter(visible).first().click();
+		sleep(5000);
+		$$x("//*[text()='Close']/parent::*[1]").filter(visible).first().click();
+		WebDriverRunner.getWebDriver().switchTo().window(currentWin);
+		sleep(5000);
+		switchToActiveFrame();
+		sleep(2000);
+		logTestStep("Click on Save as Draft button");
+		$x("//*[text()='Save as Draft']/parent::*[1]").click();
+		sleep(3000);
+
+	}
+
+	public void verifyRequestDetailForProductTypeDraftRequest(RequestTestData objRTD, ProductTestData objPTD)
+			throws Exception {
+		logTestStep("Verify request details can be saved as draft for Product type request");
+		saveReqAsDraft(objRTD);
+		logTestStep("Verify form details in request can be saved as draft for Product type request");
+		searchRequest(AppLauncherItems.ICIXPRODUCTS, objPTD.getProductName());
+		logTestStep("Click on related product");
+		sleep(5000);
+		logTestStep("Click on related product");
+		sleep(5000);
+		$$(ProductRepo.related).filter(Condition.visible).first().click();
+		sleep(3000);
+
+		logTestStep("Verify Request status");
+		WebElement eleRequestStatus = $("table.uiVirtualDataGrid tbody th span");
+		String reqStatus = eleRequestStatus.getText();
+		logTestStep("Request status is:  " + reqStatus);
+		logTestStepPassOrFail(reqStatus.equalsIgnoreCase("Open Draft"), "Verify Request status is Draft");
+		waitForPageLoadToComplete();
+		sleep(3000);
+		$(By.linkText(objRTD.getRequestName())).click();
+		waitForPageLoadToComplete();
+		// Check Heading image loaded for Request page
+		boolean result = $x("(//img[@title='Request' and @alt='Request'])[position()=last()]")
+				.waitUntil(appear, DEFAULT_WAIT).is(appear);
+		Assert.assertTrue(result, "User is not on Request page or page has not loaded properly");
+		logTestStep("Verify Request Status");
+		logTestStep("Current Status is : " + PageTabs.Details.GetFieldText("Status"));
+		logTestStepPassOrFail(PageTabs.Details.GetFieldText("Status").equalsIgnoreCase("Draft"),
+				"Verify Request Status is Draft");
+
+		logTestStep("Verify Request Name");
+		logTestStep("Current Request Name is : " + PageTabs.Details.GetFieldText("Request Name"));
+		logTestStepPassOrFail(PageTabs.Details.GetFieldText("Request Name").equalsIgnoreCase(objRTD.getRequestName()),
+				"Verify Request Name");
+
+		logTestStep("Verify Form Name");
+		logTestStep("Current Form Name is : " + PageTabs.Details.GetFieldText("Form Name"));
+		logTestStepPassOrFail(PageTabs.Details.GetFieldText("Form Name").equalsIgnoreCase(objRTD.getDocName()),
+				"Verify Form Name");
+
+		logTestStep("Verify ICIX Product");
+		logTestStep("Current ICIX Product is : " + PageTabs.Details.GetFieldText("ICIX Product"));
+		logTestStepPassOrFail(PageTabs.Details.GetFieldText("ICIX Product").equalsIgnoreCase(objPTD.getProductName()),
+				"Verify Form Name");
+
+		logTestStep("Verify Requestor Name");
+		logTestStep("Current Requestor Name is : " + PageTabs.Details.GetFieldText("Requestor"));
+		logTestStepPassOrFail(
+				PageTabs.Details.GetFieldText("Requestor").equalsIgnoreCase(GlobalTestData.Requester_Admin.getName()),
+				"Verify Requestor Name");
+
+	}
+
+	public void verifyFormDetailsInRequestSavedAsDraftForProductReq(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify form details in request can be saved as draft for Product type request");
+		logTestStep("Click on related Request");
+		$$(ProductRepo.related).filter(Condition.visible).first().click();
+		sleep(3000);
+		logTestStep("Click on Document Name link");
+		$(By.linkText(objRTD.getDocName())).click();
+		sleep(2000);
+		RefreshPage();
+		sleep(3000);
+		logTestStep("Open Form");
+		$$(".slds-page-header .sldsButtonHeightFix").filter(visible).first().click();
+		$x("//a[@title='Open Form']").click();
+		waitForPageLoadToComplete();
+		sleep(3000);
+		switchToActiveFrame();
+		logTestStep("Verify data in form");
+		String dataInTextField = $$("input").filter(visible).first().getAttribute("value");
+		logTestStepPassOrFail(dataInTextField.equalsIgnoreCase("Auto"), "Verify data in text field");
+
+		logTestStep("Verify uploaded image present");
+		logTestStepPassOrFail($(".uploaded-file__title.ng-binding").isDisplayed(), "Verify uploaded image present");
+
+		logTestStep("Click on Close button");
+		$$(".slds-float--right button").findBy(text("Close")).click();
+		sleep(2000);
+		switchToDefaultWindow();
+		sleep(2000);
+
+	}
+
+	public void verifyGlobalSearchWithTwoCharacters() throws Exception {
+		logTestStep("Verify global search with 2 characters");
+		Common.Search("Requests", "Au");
+		sleep(5000);
+		logTestStepPassOrFail(!$(".slds-text-heading--large.noResultsTitle").isDisplayed(),
+				"Verify global search with 2 characters");
+
+	}
+
+	public void MarkAsCompletedButtonDisplay(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify a [Mark as Completed] button is existing and usable on Responder after 4 time reject");
+
+		logTestStep("Search request: " + objRTD.getRequestName());
+		this.strTaskFilterName = "AutoTaskFilter" + " " + GetTimeStamp();
+		Common.verifyRequestIsDisplayedInICIXTask(objRTD.getRequestName(), strTaskFilterName);
+		logTestStep("Verify Mark as Completed button is existing");
+		sleep(2000);
+		System.out.println($(".block.bottomborder .markAsCompleted a").getText());
+		WebElement eleActionBtn = $(".block.bottomborder .markAsCompleted a");
+		String currentPresentButton = eleActionBtn.getText();
+		logTestStep("Current Present Button :  " + currentPresentButton);
+		logTestStepPassOrFail(currentPresentButton.equalsIgnoreCase("Mark as Completed"),
+				"Verify Mark as Completed button is existing");
+		logTestStep("Verify Mark as Completed button is usable on Responder");
+		eleActionBtn.click();
+		logTestStep("Edit task filter");
+		$(By.partialLinkText("Edit")).waitUntil(appear, DEFAULT_WAIT).click();
+		sleep(5000);
+		logTestStep("Select status as Closed/Completed");
+		SelectDropdownText($x("//label[contains(text(),'Status')]/following::select[1]"), "Closed/Completed");
+		sleep(2000);
+		String taskName = "NA";
+		$(By.xpath(".//*[text()='Save']")).click();
+		sleep(13000);
+		for (SelenideElement elm : $$x("//tr/td[1]/span[contains(@class,'slds-text-body--regular')]")) {
+			elm.scrollIntoView(true);
+			if (elm.getText().contains(objRTD.getRequestName())) {
+				Log.info("New task found");
+				taskName = elm.getText();
+				HighlightElement(elm);
+				sleep(4000);
+				elm.click();
+				$(".task-right .block.bottomborder .titles").waitUntil(matchText(objRTD.getRequestName()),
+						DEFAULT_WAIT);
+				sleep(4000);
+				break;
+			}
+		}
+		System.out.println("ReqName " + objRTD.getRequestName());
+		Assert.assertTrue(taskName.contains(objRTD.getRequestName()), "Search Task in list");
+		TestBase.logTestStep("Task is available in task list: " + taskName);
+		logTestStepPass("Verify Mark as Completed button is usable on Responder");
+
+	}
+
+	public void changeTheDateInFormTwice(RequestTestData objRTD) throws Exception {
+		logTestStepPass(
+				"Verify a user can add a date before sending a request and can also change the date in the form twice");
+		selectTPNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		logTestStep("open form");
+		$(By.linkText(objRTD.getDocName())).click();
+		sleep(2000);
+		Start.SwitchToSecondWindow();
+		sleep(5000);
+		WebElement eleDataField = $("slds-datepicker div div input");
+		eleDataField.click();
+		SelenideElement dtpElm = $$(By.xpath("//table[contains(@class,'datepicker')]")).filter(visible).last().hover();
+		$x("//button[@title='Next Month']").click();
+		dtpElm.$$(By.xpath(".//*[contains(@ng-repeat,'day in week')]")).filter(visible).last().click();
+		sleep(5000);
+
+		String getSelectedDate = eleDataField.getAttribute("value");
+		logTestStep("Date : " + getSelectedDate);
+		$$(".slds-float--right button").findBy(text("Save")).click();
+		sleep(5000);
+		assertText(eleDataField.getAttribute("value"), getSelectedDate);
+		logTestStepPass("Verify Date");
+		logTestStep("Click on Close button");
+		$$(".slds-float--right button").findBy(text("Close")).click();
+		sleep(2000);
+		switchToDefaultWindow();
+		sleep(2000);
+		switchToActiveFrame();
+		logTestStep("Click on form link");
+		$(By.linkText(objRTD.getDocName())).click();
+		Start.SwitchToSecondWindow();
+		logTestStep("Edit selected date");
+		sleep(5000);
+		$("slds-datepicker div div input").click();
+		dtpElm = $$(By.xpath("//table[contains(@class,'datepicker')]")).filter(visible).last().hover();
+		$x("//button[@title='Previous Month']").click();
+		dtpElm.$$(By.xpath(".//*[contains(@ng-repeat,'day in week')]")).filter(visible).last().click();
+		sleep(5000);
+		String dateAfterChanges = eleDataField.getAttribute("value");
+		logTestStep("Click on Close button");
+		$$(".slds-float--right button").findBy(text("Close")).click();
+		sleep(500);
+		$(RequestRepo.buttonYes).click();
+		sleep(2000);
+		switchToDefaultWindow();
+		switchToActiveFrame();
+		sleep(2000);
+		logTestStep("Click on form link");
+		$(By.linkText(objRTD.getDocName())).click();
+		Start.SwitchToSecondWindow();
+		sleep(5000);
+		assertText(eleDataField.getAttribute("value"), dateAfterChanges);
+		logTestStepPass("Verify data after edit");
+
+	}
+
+	public void verifyHyperlinksInCommentsTakeToDesiredTab(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify that hyperlinks in comments take to desired tab");
+		selectTPNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		logTestStep("Click on form link");
+		$(By.linkText(objRTD.getDocName())).click();
+		sleep(5000);
+		Start.SwitchToSecondWindow();
+		FormList objFB = new FormList();
+		objFB.verifyUserAbleToPostComments();
+
+		logTestStep("Click on view comments button");
+		$x("//button[@text='View Comments']").waitUntil(visible, DEFAULT_WAIT).click();
+		$x("//img[@alt='Loading...']").waitUntil(Condition.disappear, DEFAULT_WAIT);
+
+		logTestStep("Click on request name link");
+		sleep(5000);
+		$(By.linkText("Tab 0")).waitUntil(visible, DEFAULT_WAIT).click();
+		sleep(2000);
+		SelenideElement tab = $$("a[role='tab']").findBy(text("Tab 0"));
+		tab.closest("li").attr("class");
+		logTestStepPassOrFail(tab.closest("li").attr("class").contains("slds-active"),
+				"Verify hyperlinks in comments take to desired tab");
+
+	}
+
+	public void verifyOpenDraftIsOnlyPresentForDraftedRequest(RequestTestData objRTD, ProductTestData objPTD)
+			throws Exception {
+		logTestStep("Verify 'open draft' is only present for drafted requests");
+		$$(ProductRepo.related).filter(Condition.visible).first().click();
+		sleep(3000);
+		logTestStep("Click on Open Draft Link");
+		$(By.linkText("Open Draft")).click();
+		sleep(3000);
+		switchToActiveFrame();
+		sleep(2000);
+		logTestStep("Click on send button");
+		$(RequestRepo.btnSendRequest).click();
+		Common.sendReqPopup();
+		searchRequest(AppLauncherItems.ICIXPRODUCTS, objPTD.getProductName());
+		$$(ProductRepo.related).filter(Condition.visible).first().click();
+		sleep(3000);
+		logTestStepPassOrFail(!$(By.linkText("Open Draft")).isDisplayed(), "Verify Open Draft link not present");
+
+	}
+
+	public String getDefaultRequestName() {
+		logTestStep("Get default request name");
+		String requestName = $(RequestRepo.txtRequestName).getAttribute("value");
+		logTestStep("Request Name : " + requestName);
+		return requestName;
+	}
+
+	public void verifyRequestNameForParentAndComponent(String requestNameToVerify) throws Exception {
+		Search("Requests", requestNameToVerify);
+		FindAnElement(By.partialLinkText(requestNameToVerify)).click();
+		sleep(3000);
+		String requestName = PageTabs.Details.GetFieldText("Request Name");
+		logTestStep("Current Request name is : " + requestName);
+		logTestStepPassOrFail(requestName.contains(requestNameToVerify), "Verify  Request name ");
+	}
+
+	public void verifyAbleToSelectMultipleProducts(RequestTestData objRTD) throws Exception {
+		OpenRequestPage();
+		OpenNewRequestForm();
+		EnterRequestName(objRTD.getRequestName());
+		selectMultipleProducts(objRTD.getTpOrPrdctName());
+		logTestStep("Verify multiple product selected");
+		int size = $$(".slds-pill.ng-scope.slds-pill--editable .slds-pill__label").filter(visible).size();
+
+		logTestStepPassOrFail(size == 3, "Verify multiple product selected");
+
+	}
+
+	public void selectMultipleProducts(String products) throws Exception {
+		logTestStep("Select product(s):" + products);
+		if (!$("#radio_request_type_product").waitUntil(visible, DEFAULT_WAIT).isSelected()) {
+			$$("label").filter(Condition.visible).findBy(text("Product")).click();
+		}
+
+		for (String product : products.split(",")) {
+			$$("input.slds-input[role='combobox']").filter(visible).first().setValue(product);
+			sleep(3000);
+			ICIX_Common.SelectIcixAnswerOptionItem(product);
+			boolean result = $$(".slds-pill.ng-scope.slds-pill--editable .slds-pill__label").filter(visible).texts()
+					.contains(product);
+			logTestStepPassOrFail(result, "Select product: " + product);
+		}
+
+	}// end method
+
+	public void verifySeparateRequestGeneratedForEachProduct(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify , separate request should get generated for each product selected");
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		sleep(2000);
+		ClickSend();
+		Common.sendReqPopup();
+		verifyCorrectNumberOfRequestCreated(objRTD.getRequestName(), "2");
+
+	}
+
+	public void verifyCCapitalizedOnSentRequestPopup(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify that 'C' in 'close' on popup window for a sent request is capitalized");
+		OpenRequestPage();
+		OpenNewRequestForm();
+		EnterRequestName(objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		sleep(2000);
+		ClickSend();
+		logTestStepPassOrFail($(GetButtonOfOpenedModalDialog("Close")).getText().equals("Close"),
+				"Verify 'C' in 'close' is  capitalized");
+
+	}
+
+	public void removeOneForm(RequestTestData objRTD, String forms[]) throws Exception {
+		logTestStep("Verify that request is created if user remove one form out of many selected forms");
+		OpenRequestPage();
+		OpenNewRequestForm();
+		EnterRequestName(objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		selectMultipleForm(objRTD, forms);
+		logTestStep("Click on first form link");
+		$(By.linkText(forms[0])).click();
+		Start.SwitchToSecondWindow();
+		sleep(5000);
+		logTestStep("Close Form");
+		String winHandleBefore = getDriverInstance().getWindowHandle();
+		// Switch to new window opened
+		for (String winHandle : getDriverInstance().getWindowHandles()) {
+			getDriverInstance().switchTo().window(winHandle);
+		}
+		$$(".slds-float--right button").findBy(text("Close")).click();
+
+		getDriverInstance().switchTo().window(winHandleBefore);
+		sleep(5000);
+
+		logTestStep("Remove first document");
+		switchToActiveFrame();
+		$$x("//button[contains(@class,'ng-isolate-scope') and @assistive-text='Remove']").filter(visible).first()
+				.click();
+		sleep(3000);
+		selectDueDateNextMonth();
+		ClickSend();
+		Common.sendReqPopup();
+		sleep(1000);
+		verifyCorrectNumberOfRequestCreated(objRTD.getRequestName(), "1");
+	}
+
+	public void selectMultipleForm(RequestTestData objRTD, String forms[]) throws Exception {
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+
+		logTestStep("Click category");
+		ClickElement(By.linkText(objRTD.getDocCategory()), "Select Category"); // New Added
+
+		logTestStep("Select Form");
+		sleep(2000);
+
+		SelenideElement modalDialog = $$(".slds-modal").filter(visible).first().waitUntil(visible, DEFAULT_WAIT);
+
+		for (String form : forms) {
+			modalDialog.$$(".panel-content label.slds-checkbox").findBy(text(form)).waitUntil(visible, DEFAULT_WAIT)
+					.click();
+		} // end for
+
+		ClickElement(RequestRepo.btnAttach, "Attach Button");
+		ClickElement(RequestRepo.btnSaveOnPopup, "Save button on Popup");
+		sleep(3000);
+		for (String form : forms) {
+			TestBase.logTestStepPassOrFail($$("ul.disc li a").texts().contains(form), "Verify form attached: " + form);
+		}
+	}
+
+	public void expireForm(RequestTestData objRTD) throws Exception {
+		logTestStep("Form to expire" + objRTD.getDocName());
+		searchRequest(AppLauncherItems.CONTAINERTEMPLATE, objRTD.getDocName());
+		logTestStep("Edit Date");
+		ClickElement(ThreeActorRepo.btnEdit_ContainerTemplate, "Edit Container Template");
+		sleep(3000);
+		$$(".datePicker-openIcon").filter(visible).last().click();
+		$(".navLink.prevMonth").click();
+		$x("//span[contains(text(),'28')]").click();
+		logTestStep("Save Form");
+		ClickElement(ThreeActorRepo.btnSave, "Save button");
+		sleep(2000);
+
+	}
+
+	public void verifyExpiredFromNotDisplayRequestPage(RequestTestData objRTD) throws Exception {
+		expireForm(objRTD);
+		OpenRequestPage();
+		OpenNewRequestForm();
+		EnterRequestName(objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		logTestStep("Click Select Document/Form");
+		clickSelectDocumentOrForm();
+		logTestStep("Click category");
+		ClickElement(By.linkText(objRTD.getDocCategory()), "Select Category"); // New Added
+		logTestStep("Select Form");
+		sleep(2000);
+		ElementsCollection formList = $$(".slds-m-left--small.ng-binding");
+		for (SelenideElement ele : formList) {
+			logTestStep("Available Forms : " + ele.getText());
+			logTestStepPassOrFail(!ele.getText().contains(objRTD.getDocName()),
+					"Verify expired form not available in request page");
+		}
+
+	}
+
+	public void verifyRequestCanBeSentAfterNoIsClicked(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify that request can be sent after No is clicked on the resend confirmation pop-up");
+		sleep(2000);
+		OpenRequestPage();
+		OpenNewRequestForm();
+		EnterRequestName(objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		selectDueDateNextMonth();
+		ClickSend();
+		logTestStep("Click on no button");
+		// $x("//*[text()='No']/parent::*[1]").waitUntil(visible,DEFAULT_WAIT).click();
+		$$x("//*[text()='No']/parent::*[1]").filter(visible).first().click();
+		sleep(2000);
+		logTestStep("Send Request after clicking on no button");
+		ClickSend();
+		Common.sendReqPopup();
+
+	}
+
+	public void verifySubmitButtonNotShown(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify submit button is not shown once the form is submitted");
+		searchRequest(AppLauncherItems.WORKFLOWS, objRTD.getRequestName());
+		logTestStep("OpenForm");
+		openForm(objRTD);
+		switchToActiveFrame();
+		sleep(3000);
+		logTestStepPassOrFail(!$x("//button[@text='Submit']").isDisplayed(), "Verify Submit button not display");
+
+	}
+
+	public void verifyAbleToPrefillFormAutomatically(RequestTestData objRTD) throws Exception {
+		logTestStep(
+				"Verify user is  able to pre-fill form automatically by clicking a getdata button on a request page");
+		sleep(7000);
+		OpenRequestPage();
+		OpenNewRequestForm();
+		EnterRequestName(objRTD.getRequestName());
+		selectTPOrProductNameInRequestPage(objRTD);
+		selectDocument(objRTD);
+		$(By.linkText(objRTD.getDocName())).waitUntil(Condition.visible, DEFAULT_WAIT).click();
+		sleep(2000);
+		System.out.println("Title" + WebDriverRunner.getWebDriver().getTitle());
+		ArrayList<String> tabs2 = new ArrayList<String>(WebDriverRunner.getWebDriver().getWindowHandles());
+		WebDriverRunner.getWebDriver().switchTo().window(tabs2.get(1));
+		sleep(8000);
+		clickOnGetDataButton();
+		logTestStep("Verify form available to selected ");
+		WebElement ele = $(".slds-table--bordered tbody tr").waitUntil(visible, DEFAULT_WAIT);
+		logTestStepPassOrFail(ele.getText().contains(objRTD.getDocName()),
+				"Verify form is displayed after the the form is submitted ");
+		logTestStep("Select Form");
+		SelenideElement row = $$(".slds-table--bordered tbody tr td").find(text(objRTD.getDocName())).closest("tr");
+		row.$(".slds-checkbox").click();
+		sleep(2000);
+		clickOnApplyDataButton();
+		logTestStep("Verify data fetched from old form ");
+		WebElement preFieldedData = $$x("//input[@type='text']").filter(Condition.visible).first();
+		logTestStep("PreFielded data :" + preFieldedData.getAttribute("value"));
+		logTestStepPassOrFail(preFieldedData.getAttribute("value").contains("AutoPreFieldData"),
+				"Verify data auto field on text field");
+
+		WebElement preFieldedDataOnLongText = $$x("//span[contains(text(),'Long Text-0')]/following::textarea")
+				.filter(Condition.visible).first();
+		logTestStep("PreFielded data :" + preFieldedDataOnLongText.getAttribute("value"));
+		logTestStepPassOrFail(preFieldedDataOnLongText.getAttribute("value").contains("Auto"),
+				"Verify data auto field on long text field");
+		$x("(//button[@text='Save'])[position()=1]").click();
+		WebDriverRunner.getWebDriver().close();
+		WebDriverRunner.getWebDriver().switchTo().window(tabs2.get(0));
+		switchToActiveFrame();
+		logTestStep("Selecting date");
+		selectDueDateNextMonth();
+		sleep(2000);
+		ClickSend();
+		Common.sendReqPopup();
+	}
+
+	public void verifyPrefieldGetData(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify prefield data is saved after request is send");
+		openForm(objRTD);
+		switchToActiveFrame();
+		sleep(3000);
+		logTestStepPassOrFail(getTextFromReadOnlyTextField("Question-0?").contains("AutoPreFieldData"),
+				"Verify data saved in text field");
+		logTestStepPassOrFail(getTextFromReadOnlyLongTextField("Long Text-0?").contains("Auto"),
+				"Verify data saved in long text field");
+		switchTo().defaultContent();
+
+	}
+
+	public void clickOnGetDataButton() throws Exception {
+		logTestStep("Click on get data button");
+		$x("//button[@text='Get Data']").click();
+		sleep(2000);
+	}
+
+	public void clickOnApplyDataButton() throws Exception {
+		logTestStep("Click on Apply Data Button");
+		WebElement btnApplyData = $$(".slds-button--brand").find(text("Apply Data"));
+		logTestStepPassOrFail(btnApplyData.isEnabled(), "Verify Apply Data Button is Clickable");
+		btnApplyData.click();
+		sleep(5000);
+		$x("//button[@text='Remove Data']").waitUntil(Condition.visible, DEFAULT_WAIT);
+	}
+
+	public String getTextFromReadOnlyTextField(String lableName) throws Exception {
+		logTestStep("Get fielded data from text field " + lableName);
+		WebElement elegetText = $x("//span[contains(text(),'" + lableName + "')]/following::div[@class='ng-scope'][1]")
+				.waitUntil(visible, DEFAULT_WAIT);
+		String text = elegetText.getText();
+		sleep(1000);
+		return text;
+
+	}
+
+	public String getTextFromReadOnlyLongTextField(String lableName) throws Exception {
+		logTestStep("Get fielded data from text field " + lableName);
+		WebElement elegetText = $x("//span[contains(text(),'" + lableName + "')]/following::span[@class='ng-scope'][1]")
+				.waitUntil(visible, DEFAULT_WAIT);
+		String text = elegetText.getText();
+		sleep(1000);
+		return text;
+	}
+
+	public void verifyUserAbleToSelectTheFormInGetData(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify user is able to select the form from the list of already approved filled out forms");
+		clickOnGetDataButton();
+		logTestStep("Verify form available to selected ");
+		WebElement ele = $(".slds-table--bordered tbody tr").waitUntil(visible, DEFAULT_WAIT);
+		logTestStepPassOrFail(ele.getText().contains(objRTD.getDocName()),
+				"Verify form is displayed after the the form is submitted ");
+		logTestStep("Select Form");
+		SelenideElement row = $$(".slds-table--bordered tbody tr td").find(text(objRTD.getDocName())).closest("tr");
+		row.$(".slds-checkbox").click();
+		sleep(2000);
+		clickOnApplyDataButton();
+
+	}
+
+	public static enum editGetDataKey {
+		EditTextFieldOneTestDataValue, EditTextFieldTwoTestDataValue, EditLongTextFieldTestDataValue;
+
+	}
+
+	public void verifyEditAndSubmitForm() throws Exception {
+		logTestStep(
+				"Verify user is able to Edit and Submit the form for which data is re-used from already approved filled out form");
+		ThreeActor obj3A = new ThreeActor();
+		editGetDataResult.put(editGetDataKey.EditTextFieldOneTestDataValue, "AutoEditTextField");
+		editGetDataResult.put(editGetDataKey.EditTextFieldTwoTestDataValue, "AutoEdit");
+		editGetDataResult.put(editGetDataKey.EditLongTextFieldTestDataValue, "AutoEditLongText");
+		obj3A.enterDataInTextFields("Question-0?", editGetDataResult.get(editGetDataKey.EditTextFieldOneTestDataValue));
+		obj3A.enterDataInTextFields("Question-1?", editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue));
+		Common.ClearAndSendKeys(
+				By.xpath("//span[@class='pre-text ng-binding' and text()='Long Text-0?']/following::textarea[2]"),
+				editGetDataResult.get(editGetDataKey.EditLongTextFieldTestDataValue), "Enter data in long text field");
+		ClickElement(RequestRepo.btnFormSubmit, "Submit Button");
+		sleep(8000);
+		switchToDefaultWindow();
+
+	}
+
+	public void verifySubmittedData(RequestTestData objRTD) throws Exception {
+		logTestStep("Verify edited data saved successfully after submitting form");
+		openForm(objRTD);
+		switchToActiveFrame();
+		sleep(3000);
+		logTestStepPassOrFail(
+				getTextFromReadOnlyTextField("Question-0?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldOneTestDataValue)),
+				"Verify data saved in text field one after editing ");
+		logTestStepPassOrFail(
+				getTextFromReadOnlyTextField("Question-1?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue)),
+				"Verify data saved in text field two after editing");
+		logTestStepPassOrFail(
+				getTextFromReadOnlyLongTextField("Long Text-0?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue)),
+				"Verify data saved in long text field after editing");
+		switchTo().defaultContent();
+
+	}
+
+	public void verifyNewVersionOfFormDisplay() throws Exception {
+		logTestStep("Verify new version form is displayed after the the form is submitted " + "and approved");
+		clickOnGetDataButton();
+		ElementsCollection eleTotalForms = $$(".slds-table--bordered tbody tr").filter(visible);
+		int totalFormSize = eleTotalForms.size();
+		String totalSize = Integer.toString(totalFormSize);
+		logTestStepPassOrFail(totalSize.equals("2"), "Verify new version form is displayed");
+	}
+
+	public void verifyDataNotFetchedIfClickOnCancelButton() throws Exception {
+		logTestStep("Verify data is not fetched if users clicks on cancel button for GetData popup");
+		logTestStep("Click on cancel button");
+		WebElement btnCancel = $$(".slds-modal__footer.ng-scope .slds-button").find(text("Cancel"));
+		btnCancel.click();
+		logTestStep("Verify data is blank");
+		sleep(3000);
+		FormList frm = new FormList();
+		WebElement sel = frm.GetSection("Tab 0 Section 0");
+		String val = $(frm.GetEnabledElementFromSection(sel, "Question-0")).getValue();
+		logTestStepPassOrFail(val.isEmpty(), "Verify data is not saved ");
+
+	}
+
+	public void verifyResetTheFormByClickingRemoveDataButton(RequestTestData objRTD) throws Exception {
+		logTestStepPass("Verify user is able to reset the form by clicking remove data button");
+		clickOnGetDataButton();
+		WebElement ele = $(".slds-table--bordered tbody tr").waitUntil(visible, DEFAULT_WAIT);
+		logTestStepPassOrFail(ele.getText().contains(objRTD.getDocName()),
+				"Verify form is displayed after the the form is submitted ");
+		logTestStep("Select Form");
+		SelenideElement row = $$(".slds-table--bordered tbody tr td").find(text(objRTD.getDocName())).closest("tr");
+		row.$(".slds-checkbox").click();
+		sleep(2000);
+		clickOnApplyDataButton();
+		clickOnRemoveDataButton();
+		logTestStep("Verify data not saved");
+		logTestStepPassOrFail(getTextFromTextBox("Question-0?").isEmpty(),
+				"Verify Data not saved on text box one after clicking on remove button");
+
+		logTestStepPassOrFail(getTextFromTextBox("Question-1?").isEmpty(),
+				"Verify Data not saved on text box two after clicking on remove button");
+
+		logTestStepPassOrFail(getTextFromLongTextBox("Long Text-0?").isEmpty(),
+				"Verify Data not saved on long text box after clicking on remove button");
+	}
+
+	public void clickOnRemoveDataButton() throws Exception {
+		$x("//button[@text='Remove Data']").waitUntil(visible, DEFAULT_WAIT).click();
+		sleep(2000);
+	}
+
+	public String getTextFromTextBox(String lableName) throws Exception {
+		logTestStep("Get fielded data from text field " + lableName);
+		WebElement elegetText = $x("//span[contains(text(),'" + lableName + "')]/following::input[1]")
+				.waitUntil(visible, DEFAULT_WAIT);
+		String text = elegetText.getAttribute("value");
+		sleep(1000);
+		return text;
+	}
+
+	public String getTextFromLongTextBox(String lableName) throws Exception {
+		logTestStep("Get fielded data from text field " + lableName);
+		WebElement elegetText = $x("//span[contains(text(),'" + lableName
+				+ "')]//following::div[@class='slds-form-element__control']/textarea").waitUntil(visible, DEFAULT_WAIT);
+		String text = elegetText.getAttribute("value");
+		sleep(1000);
+		return text;
+	}
+
+	public void verifyDataCorrectlyFetched(RequestTestData objRTD) throws Exception {
+		logTestStep(" Verify data correctly fetched from the already approved filled out"
+				+ " forms different versions available");
+		clickOnGetDataButton();
+		WebElement ele = $(".slds-table--bordered tbody tr").waitUntil(visible, DEFAULT_WAIT);
+		logTestStepPassOrFail(ele.getText().contains(objRTD.getDocName()),
+				"Verify form is displayed after the form is submitted ");
+		logTestStep("Select Form");
+		SelenideElement row = $$(".slds-table--bordered tbody tr td").find(text(objRTD.getDocName())).closest("tr");
+		if (row.$(".slds-checkbox input").isSelected()) {
+			logInfoStepColored(COLOR.BLUE, "Form checkbox already selected");
+		} else {
+			row.$(".slds-checkbox").click();
+			sleep(2000);
+		}
+		clickOnApplyDataButton();
+		sleep(2000);
+		logTestStep("Verify data correctly fetched");
+		logTestStepPassOrFail(
+				getTextFromTextBox("Question-0?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldOneTestDataValue)),
+				"Verify data saved in text field one");
+		logTestStepPassOrFail(
+				getTextFromTextBox("Question-1?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue)),
+				"Verify data saved in text field two ");
+		logTestStepPassOrFail(
+				getTextFromLongTextBox("Long Text-0?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue)),
+				"Verify data saved in long text field");
+
+		ClickElement(RequestRepo.btnFormSubmit, "Submit Button");
+		sleep(8000);
+		switchToDefaultWindow();
+	}
+
+	public void verifyDataAtRequesterEnd() throws Exception {
+		logTestStep("Verify data submitted by responder at requester end");
+		logTestStepPassOrFail(
+				getTextFromReadOnlyTextField("Question-0?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldOneTestDataValue)),
+				"Verify data saved in text field one after editing ");
+		logTestStepPassOrFail(
+				getTextFromReadOnlyTextField("Question-1?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue)),
+				"Verify data saved in text field two after editing");
+		logTestStepPassOrFail(
+				getTextFromReadOnlyLongTextField("Long Text-0?")
+						.contains(editGetDataResult.get(editGetDataKey.EditTextFieldTwoTestDataValue)),
+				"Verify data saved in long text field after editing");
+		switchTo().defaultContent();
+	}
+
+	/**
+	 * This method will used verify multiple request is created
+	 */
+
+	public void waitFroMultipleRequestToAppear(String requestName, String totalNumberOfRequestToBeCreated)
+			throws Exception {
+		Common.GlobalSearchs(AppLauncherItems.WORKFLOWS, requestName);
+		sleep(1000);
+		String getTotalNoOfCreatedRequest = $("div.searchResultsSummary").getText();
+		logTestStep("Total request created : " + getTotalNoOfCreatedRequest);
+		if (!getTotalNoOfCreatedRequest.contains("" + totalNumberOfRequestToBeCreated + " Result")) {
+			GlobalSearchs(AppLauncherItems.WORKFLOWS, requestName);
+		} else {
+			logTestStep("Correct Number of request created");
+		}
+
+	}
+
+	public void clickOnSendButton() throws Exception {
+		logTestStep("Click on send button on ");
+		$(RequestRepo.sendReq).click();
+		sleep(1000);
+	}
+
+	public void confirmReq() {
+		logTestStep("Click on Yes button to confirm request");
+		$(RequestRepo.confirmReq).click();
+	}
+
+	public void sendSameRequesttosameTP(RequestTestData objRTD, String forms[]) throws Exception {
+			OpenRequestPage();
+			logTestStep("Open Request Page Successfully");
+			OpenNewRequestForm();
+			logTestStep("Open Create a New Request page Successfully");
+			EnterRequestName(objRTD.getRequestName());
+			logTestStep("Entered Request Name");
+			// Select Product radio button
+			if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+				ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+				logTestStep("Entering product Name");
+				ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+				Thread.sleep(500);
+				ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+				Thread.sleep(1000);
+				logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+			}
+			// Select Trading partner
+			else {
+				logTestStep("Select Trading Partner");
+				ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(),
+						"Trading Partner Field");
+				ClickElement(RequestRepo.selectTP, "Select Trading Partner");
+			}
+			selectMultipleFormInRequestPage(objRTD, forms);
+			logTestStep("Attached Form Successfully");
+			selectDueDateNextMonth();
+			logTestStep("Selected Due Date Successfully");
+			EnterRequestComment(objRTD.getComment());
+			logTestStep("Entered Comments Successfully");
+			sleep(3000);
+			clickOnSendButton();
+			//sleep(2000);
+			confirmReq();
+			sleep(3000);
+			RefreshPage();
+			OpenRequestPage();
+			logTestStep("Open Request Page Successfully");
+			OpenNewRequestForm();
+			logTestStep("Open Create a New Request page Successfully");
+			EnterRequestName(objRTD.getRequestName());
+			logTestStep("Entered Request Name");
+			// Select Product radio button
+			if (objRTD.getRequestType().equalsIgnoreCase("Product")) {
+				ClickElement(RequestRepo.RdoBtnProduct, "Product Radio Button");
+				logTestStep("Entering product Name");
+				ClearAndSendKeys(RequestRepo.txtProductName, objRTD.getTpOrPrdctName(), "Product Name Field");
+				Thread.sleep(500);
+				ClickElement(RequestRepo.OptEnteredProduct, "Select Product ");
+				Thread.sleep(1000);
+				logTestStepPassOrFail($$(RequestRepo.verifyProductAdded).size() > 0, "Select Product");
+			}
+			// Select Trading partner
+			else {
+				logTestStep("Select Trading Partner");
+				ClearAndSendKeys(RequestRepo.tradingPartnerDropDown, objRTD.getTpOrPrdctName(),
+						"Trading Partner Field");
+				ClickElement(RequestRepo.selectTP, "Select Trading Partner");
+			}
+			selectMultipleFormInRequestPage(objRTD, forms);
+			logTestStep("Attached Form Successfully");
+			selectDueDateNextMonth();
+			logTestStep("Selected Due Date Successfully");
+			EnterRequestComment(objRTD.getComment());
+			logTestStep("Entered Comments Successfully");
+			sleep(3000);
+			clickOnSendButton();
+			sleep(3000);
+			verifyYesButtonEnable(objRTD);
+		}
+}// End class
+
+
+// Logic End
+
+// Test Start
+
+package icix.Tests.two_awf;
+
+import icix.Modules.FormList;
+import icix.Modules.LoginOut;
+import icix.Modules.Request;
+import icix.TestData.LoginOutTestData;
+import icix.TestData.RequestTestData;
+import icix.Utils.Common;
+import icix.Utils.ExecuteBatchMessageProcessor;
+import icix.Utils.TestBase;
+import icix.Utils.TestStepFailException;
+import static java.lang.Thread.sleep;
+import org.testng.annotations.Test;
+
+public class QA_7491_Test extends TestBase {
+	Request ObjReq = new Request();
+	LoginOut objLoginOut = new LoginOut();
+	RequestTestData objRTD = new RequestTestData();
+	FormList ObjForm = new FormList();
+
+	@Test(description = "verify when requester try to send same request to responder that was already sent by requester "
+			+ "previously", groups = "2 Actor workflow")
+	public void verifyConfirmationPopUpOnSameRequest() throws Exception {
+		objRTD.GetData(getClass().getSimpleName());
+		logTestStep("Log in to application");
+		objLoginOut.loginAs(LoginOutTestData.Requestor_SPU);
+		logTestStep("Login Successfully to Requester");
+		
+        String formName1 = objRTD.getDocName() + "Form1 " + Common.GetTimeStamp();
+        if (!ExecuteBatchMessageProcessor.CreateFormUsingScript(formName1)) {
+            throw new TestStepFailException("Form Creation failed");
+        }
+        String formName2 = objRTD.getDocName() + "Form2 " + Common.GetTimeStamp();
+        if (!ExecuteBatchMessageProcessor.CreateFormUsingScript(formName2)) {
+            throw new TestStepFailException("Form Creation failed");
+        }
+        objRTD.setDocName(formName2);
+        String forms[] = {formName1, formName2};
+        logTestStep("Create a New Request");
+		ObjReq.sendSameRequesttosameTP(objRTD, forms);
+
+	}
+
+}
+
+
+// Test End
